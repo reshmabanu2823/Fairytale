@@ -1,0 +1,339 @@
+/* ==========================================================================
+   AETHERIA | Illuminated Fairytale Design System
+   ========================================================================== */
+
+:root {
+  /* Font Families */
+  --font-title: 'Cinzel Decorative', serif;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-subheading: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+  --font-script: 'Alex Brush', cursive;
+
+  /* Theme: Daylight Parchment (Default) */
+  --bg-primary: #fbf7ef;
+  --bg-secondary: #f4ebd9;
+  --bg-card: #fdfaf3;
+  --bg-parchment-pattern: radial-gradient(#dfcfae 1px, transparent 1px);
+  --text-main: #231638;
+  --text-muted: #614d7a;
+  --accent-gold: #c69438;
+  --accent-gold-hover: #e2ab46;
+  --accent-gold-light: #f7e6c4;
+  --accent-purple: #4a227b;
+  --accent-rose: #b85c72;
+  --accent-forest: #1e4d3b;
+  --border-gold: rgba(198, 148, 56, 0.4);
+  --border-subtle: rgba(100, 70, 130, 0.15);
+  --shadow-parchment: 0 10px 30px rgba(60, 35, 90, 0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 25px rgba(226, 171, 70, 0.35);
+  --manuscript-border: rgba(198, 148, 56, 0.6);
+  --card-glow: rgba(198, 148, 56, 0.15);
+}
+
+[data-theme="night"] {
+  /* Theme: Starlight Night */
+  --bg-primary: #0d071a;
+  --bg-secondary: #160d29;
+  --bg-card: #1b1033;
+  --bg-parchment-pattern: radial-gradient(#3a2561 1px, transparent 1px);
+  --text-main: #f5eedf;
+  --text-muted: #b8a9cf;
+  --accent-gold: #eed07b;
+  --accent-gold-hover: #fae29c;
+  --accent-gold-light: #382b13;
+  --accent-purple: #9d65e6;
+  --accent-rose: #e6859b;
+  --accent-forest: #3fa180;
+  --border-gold: rgba(238, 208, 123, 0.4);
+  --border-subtle: rgba(184, 169, 207, 0.15);
+  --shadow-parchment: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(157, 101, 230, 0.15);
+  --shadow-glow: 0 0 30px rgba(238, 208, 123, 0.45);
+  --manuscript-border: rgba(238, 208, 123, 0.7);
+  --card-glow: rgba(157, 101, 230, 0.25);
+}
+
+/* Global Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Texture Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: var(--bg-parchment-pattern);
+  background-size: 24px 24px;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography Classes */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+}
+
+.title-ornate {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-subheading {
+  font-family: var(--font-subheading);
+}
+
+.font-title {
+  font-family: var(--font-title);
+}
+
+/* Gold Shimmer Text Effect */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 100%
+  );
+  background-size: 200% auto;
+  color: #000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Drop Cap Styling */
+.drop-cap::first-letter {
+  font-family: var(--font-title);
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 2px;
+  color: var(--accent-gold);
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Illuminated Manuscript Frame Container */
+.manuscript-frame {
+  position: relative;
+  border: 2px solid var(--manuscript-border);
+  border-radius: 8px;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-parchment);
+  transition: all 0.3s ease;
+}
+
+.manuscript-frame::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px dashed var(--border-gold);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Corner Flourishes for Illuminated Frame */
+.corner-flourish {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--accent-gold);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.corner-tl { top: -2px; left: -2px; border-width: 4px 0 0 4px; border-top-left-radius: 6px; }
+.corner-tr { top: -2px; right: -2px; border-width: 4px 4px 0 0; border-top-right-radius: 6px; }
+.corner-bl { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; border-bottom-left-radius: 6px; }
+.corner-br { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; border-bottom-right-radius: 6px; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 5px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+/* Glassmorphism & Parchment Overlay Buttons */
+.btn-fairytale {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #aa771c 100%);
+  border: 1px solid var(--accent-gold);
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(198, 148, 56, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.btn-fairytale:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--shadow-glow);
+  background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 100%);
+}
+
+.btn-fairytale-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.7rem;
+  font-family: var(--font-subheading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background: transparent;
+  border: 2px solid var(--accent-gold);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-fairytale-outline:hover {
+  background: var(--accent-gold-light);
+  color: var(--accent-purple);
+  border-color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* Wax Seal Badge */
+.wax-seal {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 30% 30%, #a82e44, #691726);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f7e6c4;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 -3px 6px rgba(0,0,0,0.4);
+  border: 2px solid #c8963e;
+  font-family: var(--font-title);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+}
+
+.wax-seal:hover {
+  transform: rotate(5deg) scale(1.08);
+}
+
+/* Page Flip Transition Modal */
+.page-flip-enter {
+  opacity: 0;
+  transform: rotateY(-15deg) scale(0.95);
+}
+
+.page-flip-active {
+  opacity: 1;
+  transform: rotateY(0deg) scale(1);
+  transition: all 0.4s ease-out;
+}
+
+/* Section Decorative Flourish Divider */
+.flourish-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  color: var(--accent-gold);
+}
+
+.flourish-divider::before,
+.flourish-divider::after {
+  content: "";
+  height: 1px;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+/* Pulse animation for magic elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 8px var(--accent-gold)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 20px var(--accent-gold)); }
+}
+
+.animate-glow {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
