@@ -327,3 +327,121 @@ h1, h2, h3, h4 {
 .animate-glow {
   animation: pulse-glow 3.5s ease-in-out infinite;
 }
+
+/* ==========================================================================
+   FLOATING BUTTERFLIES ANIMATIONS
+   ========================================================================== */
+
+.butterfly-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+  overflow: hidden;
+}
+
+/* Wing Fluttering Animations */
+.wing-left {
+  transform-origin: right center;
+  animation: wingFlapLeft 0.35s ease-in-out infinite alternate;
+}
+
+.wing-right {
+  transform-origin: left center;
+  animation: wingFlapRight 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes wingFlapLeft {
+  0% { transform: rotateY(0deg) scaleX(1); }
+  100% { transform: rotateY(-70deg) scaleX(0.35); }
+}
+
+@keyframes wingFlapRight {
+  0% { transform: rotateY(0deg) scaleX(1); }
+  100% { transform: rotateY(70deg) scaleX(0.35); }
+}
+
+/* Staggered Viewport Flight Loops */
+.butterfly-flight-1 {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  animation: butterflyFlight1 20s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7));
+}
+
+.butterfly-flight-2 {
+  position: absolute;
+  top: 40%;
+  left: -10%;
+  animation: butterflyFlight2 26s ease-in-out infinite;
+  animation-delay: 4s;
+  filter: drop-shadow(0 0 14px rgba(251, 191, 36, 0.75));
+}
+
+.butterfly-flight-3 {
+  position: absolute;
+  bottom: -10%;
+  right: 15%;
+  animation: butterflyFlight3 22s ease-in-out infinite;
+  animation-delay: 8s;
+  filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.7));
+}
+
+/* Smooth Curved Bezier Paths across Viewport */
+@keyframes butterflyFlight1 {
+  0% {
+    transform: translate3d(0vw, 10vh, 0) rotate(25deg) scale(0.9);
+  }
+  20% {
+    transform: translate3d(25vw, 22vh, 0) rotate(10deg) scale(1);
+  }
+  40% {
+    transform: translate3d(50vw, 15vh, 0) rotate(-15deg) scale(1.1);
+  }
+  60% {
+    transform: translate3d(75vw, 45vh, 0) rotate(35deg) scale(0.95);
+  }
+  80% {
+    transform: translate3d(90vw, 75vh, 0) rotate(15deg) scale(1.05);
+  }
+  100% {
+    transform: translate3d(110vw, 95vh, 0) rotate(30deg) scale(0.9);
+  }
+}
+
+@keyframes butterflyFlight2 {
+  0% {
+    transform: translate3d(-10vw, 80vh, 0) rotate(-35deg) scale(0.85);
+  }
+  25% {
+    transform: translate3d(20vw, 50vh, 0) rotate(-10deg) scale(1.05);
+  }
+  50% {
+    transform: translate3d(45vw, 65vh, 0) rotate(20deg) scale(0.95);
+  }
+  75% {
+    transform: translate3d(70vw, 30vh, 0) rotate(-25deg) scale(1.1);
+  }
+  100% {
+    transform: translate3d(110vw, -10vh, 0) rotate(-15deg) scale(0.85);
+  }
+}
+
+@keyframes butterflyFlight3 {
+  0% {
+    transform: translate3d(10vw, 110vh, 0) rotate(-45deg) scale(1.1);
+  }
+  30% {
+    transform: translate3d(35vw, 70vh, 0) rotate(-15deg) scale(0.9);
+  }
+  60% {
+    transform: translate3d(60vw, 35vh, 0) rotate(10deg) scale(1.05);
+  }
+  85% {
+    transform: translate3d(30vw, 10vh, 0) rotate(-30deg) scale(0.95);
+  }
+  100% {
+    transform: translate3d(-15vw, -15vh, 0) rotate(-45deg) scale(1.1);
+  }
+}

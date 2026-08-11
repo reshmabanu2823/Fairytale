@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SparkleCanvas from './components/SparkleCanvas';
+import FloatingButterflies from './components/FloatingButterflies';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -47,6 +48,9 @@ export default function App() {
       
       {/* Background Glowing Sparkle & Bokeh Canvas */}
       <SparkleCanvas />
+
+      {/* Floating Animated Fairytale Butterflies */}
+      <FloatingButterflies />
 
       {/* Glassmorphic Navbar */}
       <Navbar
