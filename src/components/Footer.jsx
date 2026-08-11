@@ -14,17 +14,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[var(--bg-card)] border-t-2 border-[var(--manuscript-border)] pt-20 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative bg-[var(--bg-glass)] border-t-2 border-[var(--border-pink)] pt-24 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden backdrop-blur-xl">
       
       {/* Footer Closing Book Page Header */}
       <div className="max-w-4xl mx-auto text-center mb-16">
         
-        {/* Calligraphy "Finis" Flourish */}
-        <div className="wax-seal w-16 h-16 mx-auto mb-4 text-2xl">
+        {/* Calligraphy "Finis" Crest */}
+        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-tr from-[#e02575] via-[#ec4899] to-[#fbbf24] p-0.5 shadow-xl flex items-center justify-center text-white font-bold text-2xl">
           ★
         </div>
 
-        <h2 className="font-title text-4xl sm:text-5xl font-bold tracking-wider text-[var(--text-main)] mb-2">
+        <h2 className="font-display text-4xl sm:text-6xl font-black tracking-wider text-[var(--text-main)] mb-2">
           Finis
         </h2>
 
@@ -36,27 +36,22 @@ export default function Footer() {
           <span>✦ 📜 ✦</span>
         </div>
 
-        <p className="font-serif text-sm text-[var(--text-muted)] italic max-w-md mx-auto">
+        <p className="font-body text-sm text-[var(--text-muted)] italic max-w-md mx-auto font-medium">
           "The end of a story is merely the beginning of another dream."
         </p>
 
       </div>
 
-      {/* Owl Post Newsletter Parchment Form */}
-      <div className="max-w-xl mx-auto manuscript-frame p-8 mb-16 bg-[var(--bg-secondary)] text-center">
+      {/* Owl Post Newsletter Glassmorphic Form */}
+      <div className="max-w-xl mx-auto glass-card p-8 mb-16 text-center border-2 border-[var(--border-pink)]">
         
-        <div className="corner-flourish corner-tl" />
-        <div className="corner-flourish corner-tr" />
-        <div className="corner-flourish corner-bl" />
-        <div className="corner-flourish corner-br" />
-
-        <Feather className="w-8 h-8 text-[var(--accent-gold)] mx-auto mb-3" />
+        <Feather className="w-8 h-8 text-[var(--accent-magenta)] mx-auto mb-3" />
         
-        <h3 className="font-heading text-xl font-bold text-[var(--text-main)] mb-1">
+        <h3 className="font-display text-2xl font-bold text-[var(--text-main)] mb-1">
           Subscribe to the Owl Post
         </h3>
         
-        <p className="font-serif text-xs text-[var(--text-muted)] mb-6">
+        <p className="font-body text-xs text-[var(--text-muted)] mb-6 font-medium">
           Receive newly illuminated chapters directly delivered by royal owl.
         </p>
 
@@ -68,15 +63,15 @@ export default function Footer() {
               placeholder="Enter your scroll address (email)..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-full border border-[var(--border-gold)] bg-[var(--bg-card)] text-[var(--text-main)] placeholder-[var(--text-muted)] font-serif text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-gold)]"
+              className="w-full px-5 py-3 rounded-full border-2 border-[var(--border-pink)] bg-[var(--bg-card)] text-[var(--text-main)] placeholder-[var(--text-muted)] font-body text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent-magenta)] shadow-sm"
             />
-            <button type="submit" className="btn-fairytale whitespace-nowrap py-2.5 px-6">
+            <button type="submit" className="btn-pill-glam whitespace-nowrap py-3 px-7">
               <Send className="w-4 h-4" />
               <span>Send Post</span>
             </button>
           </form>
         ) : (
-          <div className="p-3 rounded-lg bg-[var(--accent-gold-light)] text-[var(--accent-purple)] font-serif text-sm font-bold flex items-center justify-center gap-2">
+          <div className="p-3.5 rounded-full bg-gradient-to-r from-[#e02575] to-[#ec4899] text-white font-body text-xs font-bold flex items-center justify-center gap-2 shadow-md">
             <Sparkles className="w-4 h-4 text-[var(--accent-gold)]" />
             <span>Your scroll address has been recorded by the Royal Owls!</span>
           </div>
@@ -84,29 +79,27 @@ export default function Footer() {
 
       </div>
 
-      {/* Leather Ribbon Social Links & Copyright */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-6">
+      {/* Social Links & Copyright */}
+      <div className="max-w-7xl mx-auto pt-8 border-t border-[var(--border-pink)]/30 flex flex-col sm:flex-row items-center justify-between gap-6">
         
-        {/* Quiet Social Links */}
-        <div className="flex items-center gap-6 font-subheading text-xs text-[var(--text-muted)]">
-          <a href="#" className="hover:text-[var(--accent-gold)] transition-colors flex items-center gap-1">
-            <Bookmark className="w-3.5 h-3.5 text-[var(--accent-gold)]" />
+        <div className="flex items-center gap-6 font-body text-xs font-bold text-[var(--text-muted)]">
+          <a href="#" className="hover:text-[var(--accent-magenta)] transition-colors flex items-center gap-1.5">
+            <Bookmark className="w-4 h-4 text-[var(--accent-magenta)]" />
             <span>The Scroll Codex</span>
           </a>
-          <a href="#" className="hover:text-[var(--accent-gold)] transition-colors flex items-center gap-1">
-            <BookOpen className="w-3.5 h-3.5 text-[var(--accent-gold)]" />
+          <a href="#" className="hover:text-[var(--accent-magenta)] transition-colors flex items-center gap-1.5">
+            <BookOpen className="w-4 h-4 text-[var(--accent-magenta)]" />
             <span>Guild Library</span>
           </a>
-          <a href="#" className="hover:text-[var(--accent-gold)] transition-colors flex items-center gap-1">
-            <Feather className="w-3.5 h-3.5 text-[var(--accent-gold)]" />
+          <a href="#" className="hover:text-[var(--accent-magenta)] transition-colors flex items-center gap-1.5">
+            <Feather className="w-4 h-4 text-[var(--accent-magenta)]" />
             <span>Scribe Registry</span>
           </a>
         </div>
 
-        {/* Copyright */}
-        <div className="font-serif text-xs text-[var(--text-muted)] flex items-center gap-1">
+        <div className="font-body text-xs text-[var(--text-muted)] font-medium flex items-center gap-1">
           <span>© {new Date().getFullYear()} Aetheria • Crafted with</span>
-          <Heart className="w-3.5 h-3.5 text-[var(--accent-rose)] fill-current inline" />
+          <Heart className="w-3.5 h-3.5 text-[var(--accent-magenta)] fill-current inline" />
           <span>for Dreamers</span>
         </div>
 

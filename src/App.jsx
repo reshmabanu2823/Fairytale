@@ -29,9 +29,7 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('aetheria_bookmarks', JSON.stringify(bookmarkedIds));
-    } catch (e) {
-      // Storage fallback
-    }
+    } catch (e) {}
   }, [bookmarkedIds]);
 
   const handleToggleBookmark = (id) => {
@@ -45,12 +43,12 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--accent-gold)] selection:text-black">
+    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--accent-magenta)] selection:text-white font-body">
       
-      {/* Interactive Background Canvas */}
+      {/* Background Glowing Sparkle & Bokeh Canvas */}
       <SparkleCanvas />
 
-      {/* Parchment Navbar */}
+      {/* Glassmorphic Navbar */}
       <Navbar
         theme={theme}
         setTheme={setTheme}
@@ -77,7 +75,7 @@ export default function App() {
       {/* Closing Book Footer */}
       <Footer />
 
-      {/* Interactive Storybook Reader Modal */}
+      {/* Storybook Reader Modal */}
       {selectedChapter && (
         <StoryReaderModal
           chapter={selectedChapter}
@@ -87,29 +85,24 @@ export default function App() {
         />
       )}
 
-      {/* Bookmarks Quick Drawer Modal */}
+      {/* Bookmarks Quick Modal */}
       {showBookmarksModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-          <div className="manuscript-frame w-full max-w-lg bg-[var(--bg-card)] p-6 sm:p-8 border-2 border-[var(--manuscript-border)] shadow-2xl relative max-h-[80vh] flex flex-col justify-between">
+          <div className="glass-card w-full max-w-lg p-6 sm:p-8 border-2 border-[var(--border-pink)] shadow-2xl relative max-h-[80vh] flex flex-col justify-between">
             
-            <div className="corner-flourish corner-tl" />
-            <div className="corner-flourish corner-tr" />
-            <div className="corner-flourish corner-bl" />
-            <div className="corner-flourish corner-br" />
-
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)] mb-4">
+            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-pink)]/30 mb-4">
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-[var(--accent-gold)]" />
-                <h3 className="font-title text-lg text-[var(--text-main)]">
+                <Bookmark className="w-5 h-5 text-[var(--accent-magenta)]" />
+                <h3 className="font-display font-bold text-lg text-[var(--text-main)]">
                   Bookmarked Tales ({bookmarkedChapters.length})
                 </h3>
               </div>
 
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="p-1 rounded-full hover:bg-[var(--accent-gold-light)] text-[var(--text-main)]"
+                className="btn-icon-pill w-8 h-8"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
@@ -121,25 +114,25 @@ export default function App() {
                     setSelectedChapter(c);
                     setShowBookmarksModal(false);
                   }}
-                  className="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-secondary)]/50 hover:border-[var(--accent-gold)] cursor-pointer flex items-center justify-between transition-colors group"
+                  className="p-4 rounded-2xl border border-[var(--border-pink)]/40 bg-[var(--bg-card)] hover:border-[var(--accent-magenta)] cursor-pointer flex items-center justify-between transition-colors group"
                 >
                   <div>
-                    <span className="font-title text-[10px] uppercase text-[var(--accent-gold)] font-bold">
+                    <span className="font-display text-[10px] uppercase text-[var(--accent-magenta)] font-bold">
                       {c.chapterNum}
                     </span>
-                    <h4 className="font-heading font-bold text-base text-[var(--text-main)] group-hover:text-[var(--accent-gold)] transition-colors">
+                    <h4 className="font-display font-bold text-base text-[var(--text-main)] group-hover:text-[var(--accent-magenta)] transition-colors">
                       {c.title}
                     </h4>
                   </div>
-                  <BookOpen className="w-4 h-4 text-[var(--accent-gold)]" />
+                  <BookOpen className="w-4 h-4 text-[var(--accent-magenta)]" />
                 </div>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-[var(--border-subtle)] text-center">
+            <div className="pt-4 border-t border-[var(--border-pink)]/30 text-center">
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="btn-fairytale-outline text-xs py-2 px-6"
+                className="btn-pill-outline text-xs py-2 px-6"
               >
                 Close Bookmarks
               </button>
