@@ -1,42 +1,28 @@
 import React, { useState } from 'react';
 import { REALM_MAP_LOCATIONS } from '../data/chaptersData';
-import { Compass, Sparkles, MapPin, TreePine, Waves, Cog, Shield } from 'lucide-react';
 
 export default function RealmMap() {
   const [activeLocation, setActiveLocation] = useState(REALM_MAP_LOCATIONS[0]);
 
-  const getIcon = (iconName) => {
-    switch (iconName) {
-      case 'TreePine': return <TreePine className="w-5 h-5" />;
-      case 'Sparkles': return <Sparkles className="w-5 h-5" />;
-      case 'Waves': return <Waves className="w-5 h-5" />;
-      case 'Cog': return <Cog className="w-5 h-5" />;
-      default: return <MapPin className="w-5 h-5" />;
-    }
-  };
-
   return (
-    <section id="realm-map" className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      
+    <section id="realm-map" className="py-20 px-[5vw] max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-14">
-        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Cartography & Lore</span>
-        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
+      <div className="text-center mb-12">
+        <span className="font-accent-italic text-accent-italic text-2xl text-[var(--color-tertiary)] block mb-1">
+          Cartography & Imperial Maps
+        </span>
+        <h2 className="font-display-lg text-3xl sm:text-5xl text-[var(--color-primary)] font-bold">
           The Map of Aetheria
         </h2>
-        <p className="font-body text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto mt-2 italic">
+        <p className="font-body-md text-sm sm:text-base text-[var(--text-on-surface-variant)] max-w-xl mx-auto mt-2 italic">
           Explore the four enchanted provinces and their sovereign rulers.
         </p>
-        <div className="flourish-divider max-w-xs mx-auto">
-          <span>✦ 🧭 ✦</span>
-        </div>
       </div>
 
       {/* Map Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        
-        {/* Location Selector Cards */}
-        <div className="space-y-4">
+        {/* Selector Cards */}
+        <div className="space-y-3">
           {REALM_MAP_LOCATIONS.map((loc) => {
             const isSelected = activeLocation.id === loc.id;
 
@@ -44,81 +30,77 @@ export default function RealmMap() {
               <button
                 key={loc.id}
                 onClick={() => setActiveLocation(loc)}
-                className={`w-full text-left p-5 rounded border transition-all flex items-center justify-between group ${
+                className={`w-full text-left p-4 rounded-lg border transition-all flex items-center justify-between group ${
                   isSelected
-                    ? 'border-[var(--text-main)] bg-[var(--bg-card)] shadow-md scale-102'
-                    : 'border-[var(--border-sepia)] bg-[var(--bg-card)]/60 hover:border-[var(--text-main)]/60'
+                    ? 'border-[var(--color-primary)] bg-[var(--bg-surface)] shadow-md scale-102'
+                    : 'border-[var(--border-outline-variant)]/40 bg-[var(--bg-surface-low)] hover:border-[var(--color-primary)]/50'
                 }`}
               >
-                <div className="flex items-center gap-4">
-                  <div className={`w-10 h-10 rounded-full border border-[var(--border-sepia)] flex items-center justify-center ${
-                    isSelected ? 'bg-[var(--accent-sage-dark)] text-white' : 'text-[var(--accent-gold-dark)] bg-[var(--bg-secondary)]'
+                <div className="flex items-center gap-3">
+                  <span className={`material-symbols-outlined p-2 rounded-full text-lg ${
+                    isSelected ? 'bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)]' : 'text-[var(--color-primary)]'
                   }`}>
-                    {getIcon(loc.icon)}
-                  </div>
+                    explore
+                  </span>
                   <div>
-                    <h4 className="font-bold font-display text-lg text-[var(--text-main)] group-hover:text-[var(--accent-gold-dark)] transition-colors">
+                    <h4 className="font-bold font-display text-base text-[var(--text-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {loc.name}
                     </h4>
-                    <span className="font-heading text-xs text-[var(--text-muted)] italic font-semibold">
+                    <span className="font-accent-italic text-xs text-[var(--color-tertiary)]">
                       {loc.type}
                     </span>
                   </div>
                 </div>
-
-                <Sparkles className={`w-4 h-4 transition-opacity ${isSelected ? 'opacity-100 text-[var(--accent-gold-dark)]' : 'opacity-0'}`} />
               </button>
             );
           })}
         </div>
 
-        {/* Parchment Map Card */}
-        <div className="lg:col-span-2 torn-paper p-8 sm:p-12 bg-[var(--bg-card)] border border-[var(--border-sepia)] relative min-h-[420px] flex flex-col justify-between">
-          
-          <div className="flex items-center justify-between border-b border-[var(--border-sepia)] pb-4 mb-6">
-            <div className="flex items-center gap-3">
-              <Compass className="w-8 h-8 text-[var(--accent-gold-dark)] animate-spin-slow" />
-              <div>
-                <span className="font-display text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">
-                  Province Register
-                </span>
-                <h3 className="font-display text-2xl font-bold text-[var(--text-main)]">
-                  {activeLocation.name}
-                </h3>
+        {/* Parchment Lore Card */}
+        <div className="lg:col-span-2 bg-[var(--bg-surface)] p-8 shadow-lg torn-edge-all border border-[var(--border-outline-variant)]/40 relative min-h-[380px] flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between border-b border-[var(--border-outline-variant)]/30 pb-3 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-2xl text-[var(--color-tertiary)]">map</span>
+                <div>
+                  <span className="font-label-sm text-[10px] text-[var(--text-on-surface-variant)] uppercase">
+                    Province Register
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-[var(--text-on-surface)]">
+                    {activeLocation.name}
+                  </h3>
+                </div>
               </div>
-            </div>
 
-            <span className="caption-script text-xl text-[var(--accent-gold-dark)] hidden sm:inline">
-              Ruler: {activeLocation.ruler}
-            </span>
-          </div>
-
-          <div className="my-4">
-            <div className="inline-block px-3.5 py-1 rounded border border-[var(--border-sepia)] bg-[var(--bg-secondary)] text-[var(--text-main)] font-display text-xs font-bold uppercase tracking-wider mb-4">
-              {activeLocation.type}
-            </div>
-
-            <p className="font-body text-lg text-[var(--text-main)] leading-relaxed mb-6">
-              "{activeLocation.description}"
-            </p>
-
-            <div className="p-4 rounded bg-[var(--bg-secondary)] border border-[var(--border-sepia)] flex items-center gap-3 text-sm font-body">
-              <Shield className="w-5 h-5 text-[var(--accent-gold-dark)] flex-shrink-0" />
-              <span>
-                <strong>Sovereign Leadership:</strong> {activeLocation.ruler} commands this territory with honor under the Celestial Compact.
+              <span className="font-accent-italic text-lg text-[var(--color-tertiary)] hidden sm:inline">
+                Ruler: {activeLocation.ruler}
               </span>
             </div>
+
+            <div className="my-4">
+              <span className="inline-block px-3 py-1 rounded bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] font-label-sm text-[10px] uppercase font-bold mb-4">
+                {activeLocation.type}
+              </span>
+
+              <p className="font-body-md text-base text-[var(--text-on-surface-variant)] leading-relaxed mb-6">
+                "{activeLocation.description}"
+              </p>
+
+              <div className="p-3 rounded bg-[var(--bg-surface-low)] border border-[var(--border-outline-variant)]/30 flex items-center gap-2 text-xs font-body-md">
+                <span className="material-symbols-outlined text-base text-[var(--color-primary)]">shield</span>
+                <span>
+                  <strong>Sovereign Leadership:</strong> {activeLocation.ruler} commands this territory under the Celestial Compact.
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="pt-6 border-t border-[var(--border-sepia)] flex items-center justify-between text-xs font-body text-[var(--text-muted)] font-medium">
+          <div className="pt-4 border-t border-[var(--border-outline-variant)]/30 flex items-center justify-between text-xs font-label-sm text-[var(--text-on-surface-variant)]">
             <span>Coordinates: 42° 18' N, 12° 04' E</span>
-            <span className="caption-script text-base text-[var(--accent-gold-dark)]">Eldoria Imperial Cartography</span>
+            <span className="font-accent-italic text-sm text-[var(--color-tertiary)]">Eldoria Cartography</span>
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

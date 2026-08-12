@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, Feather } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeTab, setActiveTab] = useState('lore');
@@ -47,39 +46,48 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative">
-      
+    <section id="about" className="py-20 px-[5vw] max-w-5xl mx-auto relative">
       {/* Section Header */}
-      <div className="text-center mb-14">
-        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Prologue</span>
-        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
+      <div className="text-center mb-12">
+        <span className="font-accent-italic text-accent-italic text-2xl text-[var(--color-tertiary)] block mb-1">
+          Prologue Grimoire
+        </span>
+        <h2 className="font-display-lg text-3xl sm:text-5xl text-[var(--color-primary)] font-bold">
           The Chronicles of Eldoria
         </h2>
-        <div className="flourish-divider max-w-xs mx-auto">
-          <span>✦ 🌿 ✦</span>
-        </div>
       </div>
 
-      {/* Main Torn Paper Journal Container */}
-      <div className="torn-paper p-8 sm:p-14 bg-[var(--bg-card)] border border-[var(--border-sepia)] relative">
-        
+      {/* Main Torn Edge Card */}
+      <div className="bg-[var(--bg-surface)] p-8 sm:p-12 shadow-lg torn-edge-all border border-[var(--border-outline-variant)]/40 relative">
         {/* Story Tab Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10 pb-6 border-b border-[var(--border-sepia)]">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8 pb-4 border-b border-[var(--border-outline-variant)]/30">
           <button
             onClick={() => { setActiveTab('lore'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={`btn-minimal-icon ${activeTab === 'lore' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
+            className={`px-4 py-2 rounded-full font-label-sm text-xs transition-colors ${
+              activeTab === 'lore'
+                ? 'bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] font-bold'
+                : 'text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]'
+            }`}
           >
             The Realm Lore
           </button>
           <button
             onClick={() => { setActiveTab('guild'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={`btn-minimal-icon ${activeTab === 'guild' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
+            className={`px-4 py-2 rounded-full font-label-sm text-xs transition-colors ${
+              activeTab === 'guild'
+                ? 'bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] font-bold'
+                : 'text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]'
+            }`}
           >
             Storysmith Guild
           </button>
           <button
             onClick={() => { setActiveTab('fate'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={`btn-minimal-icon ${activeTab === 'fate' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
+            className={`px-4 py-2 rounded-full font-label-sm text-xs transition-colors ${
+              activeTab === 'fate'
+                ? 'bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] font-bold'
+                : 'text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]'
+            }`}
           >
             Weavers of Fate
           </button>
@@ -87,51 +95,47 @@ export default function AboutSection() {
 
         {/* Narrative Text Content */}
         <div className="relative">
-          
           {/* Audio Speech Narration Toggle Button */}
           <button
             onClick={handleSpeak}
-            className={`btn-minimal-icon absolute top-0 right-0 ${
-              isSpeaking ? 'bg-[var(--accent-sage-dark)] text-white' : ''
+            className={`absolute top-0 right-0 px-3 py-1.5 rounded-full border border-[var(--border-outline-variant)] text-xs font-label-sm flex items-center gap-1.5 transition-colors ${
+              isSpeaking
+                ? 'bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-bold'
+                : 'bg-[var(--bg-surface-low)] text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]'
             }`}
             title={isSpeaking ? "Stop Narration" : "Listen to Narrator"}
           >
-            {isSpeaking ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[var(--accent-gold-dark)]" />}
-            <span className="hidden sm:inline font-body text-xs">
-              {isSpeaking ? "Stop Voice" : "Listen to Legend"}
+            <span className="material-symbols-outlined text-base">
+              {isSpeaking ? 'volume_off' : 'volume_up'}
+            </span>
+            <span className="hidden sm:inline">
+              {isSpeaking ? "Stop Voice" : "Listen"}
             </span>
           </button>
 
-          <h3 className="text-2xl sm:text-3xl font-bold font-display text-[var(--text-main)] mb-6 pr-36">
+          <h3 className="text-2xl sm:text-3xl font-bold font-display text-[var(--color-primary)] mb-4 pr-32">
             {currentContent.title}
           </h3>
 
-          <p className="drop-cap text-lg text-[var(--text-main)] leading-relaxed mb-6 font-body">
+          <p className="drop-cap font-body-md text-base sm:text-lg text-[var(--text-on-surface-variant)] leading-relaxed mb-6">
             {currentContent.text}
           </p>
 
-          <blockquote className="border-l-4 border-[var(--accent-gold)] pl-5 italic font-heading text-[var(--text-muted)] text-lg my-8 bg-[var(--bg-secondary)]/50 py-4 rounded-r-lg">
+          <blockquote className="border-l-4 border-[var(--color-tertiary)] pl-4 font-accent-italic text-accent-italic text-[var(--color-tertiary)] text-xl my-6 bg-[var(--bg-surface-low)] py-3 rounded-r-lg">
             {currentContent.quote}
           </blockquote>
-
         </div>
 
-        {/* Closing Signature & Wax Seal */}
-        <div className="mt-10 pt-6 border-t border-[var(--border-sepia)] flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Feather className="w-5 h-5 text-[var(--accent-gold-dark)]" />
-            <span className="caption-script text-2xl text-[var(--text-main)]">
-              Chronicles Keeper Morwenna
-            </span>
-          </div>
-
-          <div className="wax-seal-badge">
-            <span>★</span>
-          </div>
+        {/* Closing Signature */}
+        <div className="mt-8 pt-4 border-t border-[var(--border-outline-variant)]/30 flex items-center justify-between">
+          <span className="font-accent-italic text-2xl text-[var(--color-primary)]">
+            Chronicles Keeper Morwenna
+          </span>
+          <span className="font-label-sm text-xs text-[var(--color-tertiary)]">
+            ARCHIVAL EMBLEM
+          </span>
         </div>
-
       </div>
-
     </section>
   );
 }

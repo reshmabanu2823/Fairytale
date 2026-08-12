@@ -1,5 +1,4 @@
 import React from 'react';
-import { Moon, Sun, Volume2, VolumeX, Bookmark, Feather } from 'lucide-react';
 import { toggleAmbientAudio } from '../utils/audioSynth';
 
 export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookmarkCount, onOpenBookmarks }) {
@@ -14,101 +13,94 @@ export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookm
   };
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md border-b border-[var(--border-sepia)] bg-[var(--bg-overlay)] shadow-xs transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+    <nav className="fixed top-0 w-full z-50 bg-[var(--bg-surface-container)]/80 backdrop-blur-md border-b border-[var(--border-outline-variant)]/30 shadow-sm flex justify-between items-center px-[5vw] py-4">
+      {/* Brand Title */}
+      <a href="#" className="flex items-center gap-2 group">
+        <span className="font-display-lg text-3xl md:text-4xl text-[var(--color-primary)] drop-shadow-sm group-hover:text-[var(--color-tertiary)] transition-colors">
+          Aetheria
+        </span>
+        <span className="font-accent-italic text-sm text-[var(--color-tertiary)] hidden sm:inline">
+          Ephemera Folio
+        </span>
+      </a>
+
+      {/* Nav Links */}
+      <div className="hidden md:flex items-center gap-6">
+        <a href="#about" className="text-[var(--text-on-surface-variant)] font-label-sm text-xs hover:text-[var(--color-tertiary)] transition-colors duration-300">
+          Grimoire
+        </a>
+        <a href="#chapters" className="text-[var(--color-primary)] font-bold border-b-2 border-[var(--color-primary)] pb-0.5 font-label-sm text-xs hover:text-[var(--color-tertiary)] transition-colors duration-300">
+          Flora & Tales
+        </a>
+        <a href="#realm-map" className="text-[var(--text-on-surface-variant)] font-label-sm text-xs hover:text-[var(--color-tertiary)] transition-colors duration-300">
+          Cartography
+        </a>
+        <a href="#archetype-quiz" className="text-[var(--text-on-surface-variant)] font-label-sm text-xs hover:text-[var(--color-tertiary)] transition-colors duration-300">
+          Folklore Quiz
+        </a>
+        <a href="#wishcraft" className="text-[var(--text-on-surface-variant)] font-label-sm text-xs hover:text-[var(--color-tertiary)] transition-colors duration-300">
+          Locket Oracle
+        </a>
+      </div>
+
+      {/* Action Controls */}
+      <div className="flex items-center gap-3">
         
-        {/* Vintage Wax Seal Logo Emblem */}
-        <a href="#" className="flex items-center gap-3 group text-decoration-none">
-          <div className="wax-seal-badge group-hover:scale-105 transition-transform">
-            <span>AE</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display text-xl sm:text-2xl font-black tracking-wider text-[var(--text-main)] group-hover:text-[var(--accent-gold-dark)] transition-colors">
-              AETHERIA
+        {/* Ambient Soundscape Toggle */}
+        <button
+          onClick={handleAudioToggle}
+          className={`px-3 py-1.5 rounded-full font-label-sm text-[11px] border border-[var(--border-outline-variant)] transition-all flex items-center gap-1.5 ${
+            isAudioOn
+              ? 'bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] font-bold'
+              : 'text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]'
+          }`}
+          title={isAudioOn ? 'Mute Chimes' : 'Play Fairy Chimes'}
+        >
+          <span className="material-symbols-outlined text-sm">
+            {isAudioOn ? 'volume_up' : 'volume_off'}
+          </span>
+          <span className="hidden sm:inline">
+            {isAudioOn ? 'Chimes On' : 'Chimes'}
+          </span>
+        </button>
+
+        {/* Bookmarks Toggle */}
+        {bookmarkCount > 0 && (
+          <button
+            onClick={onOpenBookmarks}
+            className="relative px-3 py-1.5 rounded-full bg-[var(--color-primary-container)] text-[var(--color-on-primary-container)] font-label-sm text-[11px] flex items-center gap-1 hover:opacity-90"
+            title="View Bookmarked Tales"
+          >
+            <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>
+              bookmark
             </span>
-            <span className="caption-script text-sm text-[var(--accent-gold-dark)] -mt-1">
-              botanical journal & lore
-            </span>
-          </div>
+            <span>{bookmarkCount}</span>
+          </button>
+        )}
+
+        {/* Open Journal Button */}
+        <a
+          href="#chapters"
+          className="bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] px-4 py-2 rounded-full font-label-sm text-xs hover:bg-[var(--color-secondary-container)]/80 transition-colors hidden md:flex items-center gap-2 shadow-xs"
+        >
+          <span className="material-symbols-outlined text-base" style={{ fontVariationSettings: "'FILL' 1" }}>
+            book_2
+          </span>
+          <span>Open Journal</span>
         </a>
 
-        {/* Minimal Understated Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 font-body text-sm font-medium">
-          <a
-            href="#about"
-            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
-          >
-            <span>The Legend</span>
-          </a>
-          <a
-            href="#chapters"
-            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
-          >
-            <span>Storybook Tales</span>
-          </a>
-          <a
-            href="#realm-map"
-            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
-          >
-            <span>Cartography</span>
-          </a>
-          <a
-            href="#archetype-quiz"
-            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
-          >
-            <span>Calling Quiz</span>
-          </a>
-          <a
-            href="#wishcraft"
-            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
-          >
-            <span>Wishcraft</span>
-          </a>
-        </nav>
-
-        {/* Minimal Understated Action Buttons */}
-        <div className="flex items-center gap-3">
-          
-          {/* Audio Chimes Button */}
-          <button
-            onClick={handleAudioToggle}
-            className={`btn-minimal-icon ${
-              isAudioOn ? 'bg-[var(--accent-sage)] text-white border-transparent' : ''
-            }`}
-            title={isAudioOn ? 'Mute Chimes' : 'Play Fairy Chimes'}
-          >
-            {isAudioOn ? <Volume2 className="w-4 h-4 animate-bounce" /> : <VolumeX className="w-4 h-4" />}
-            <span className="hidden sm:inline font-body text-xs">
-              {isAudioOn ? 'Chimes On' : 'Chimes'}
-            </span>
-          </button>
-
-          {/* Bookmarks Toggle Pill */}
-          {bookmarkCount > 0 && (
-            <button
-              onClick={onOpenBookmarks}
-              className="btn-minimal-icon relative"
-              title="View Bookmarks"
-            >
-              <Bookmark className="w-4 h-4 fill-current text-[var(--accent-blush)]" />
-              <span className="bg-[var(--accent-sepia)] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
-                {bookmarkCount}
-              </span>
-            </button>
-          )}
-
-          {/* Theme Switcher Button */}
-          <button
-            onClick={toggleTheme}
-            className="btn-minimal-icon"
-            title={theme === 'daylight' ? 'Switch to Midnight Sanctuary' : 'Switch to Botanical Parchment'}
-          >
-            {theme === 'daylight' ? <Moon className="w-4 h-4 text-[var(--accent-sepia)]" /> : <Sun className="w-4 h-4 text-[var(--accent-gold)]" />}
-          </button>
-
-        </div>
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 text-[var(--color-primary)] hover:text-[var(--color-tertiary)] transition-colors"
+          title={theme === 'daylight' ? 'Switch to Midnight Sanctuary' : 'Switch to Botanical Folio'}
+        >
+          <span className="material-symbols-outlined text-xl">
+            {theme === 'daylight' ? 'dark_mode' : 'light_mode'}
+          </span>
+        </button>
 
       </div>
-    </header>
+    </nav>
   );
 }

@@ -1,69 +1,69 @@
 /* ==========================================================================
-   AETHERIA | Vintage Fairycore Journal & Editorial Scrapbook Design System
+   AETHERIA | Ethereal Ephemera Botanical Folio Design System
+   (Retrieved from Attached Zip File)
    ========================================================================== */
 
 :root {
   /* Font Families */
-  --font-display: 'Bodoni Moda', 'Playfair Display', serif;
-  --font-heading: 'Cormorant Garamond', 'Playfair Display', serif;
-  --font-body: 'Lora', 'Plus Jakarta Sans', serif;
-  --font-script: 'Caveat', 'Alex Brush', cursive;
+  --font-display: 'Playfair Display', serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Libre Caslon Text', serif;
+  --font-accent: 'EB Garamond', serif;
 
-  /* Theme: Vintage Botanical Parchment (Default) */
-  --bg-primary: #f6f1e8;
-  --bg-secondary: #ebdccb;
-  --bg-card: #f9f5ee;
-  --bg-blush: #e4c3c6;
-  --bg-sage: #c2cdc0;
-  --bg-overlay: rgba(246, 241, 232, 0.88);
+  /* Theme Colors (Ethereal Ephemera Palette) */
+  --bg-background: #fbfbe2;
+  --bg-surface: #fbfbe2;
+  --bg-surface-low: #f5f5dc;
+  --bg-surface-container: #efefd7;
+  --bg-surface-high: #eaead1;
+  --bg-surface-highest: #e4e4cc;
   
-  --text-main: #36291e;
-  --text-muted: #6e5a4b;
-  --text-script: #8c4c54;
+  --text-on-background: #1b1d0e;
+  --text-on-surface: #1b1d0e;
+  --text-on-surface-variant: #504444;
 
-  --accent-blush: #d8b0b4;
-  --accent-sage: #6b7c67;
-  --accent-sage-dark: #445440;
-  --accent-gold: #c69d52;
-  --accent-gold-dark: #9a7632;
-  --accent-sepia: #5c4738;
+  --color-primary: #795556;
+  --color-primary-container: #e5b8b8;
+  --color-on-primary-container: #694748;
 
-  --border-sepia: rgba(92, 71, 56, 0.25);
-  --border-gold: rgba(198, 157, 82, 0.45);
-  --border-sage: rgba(107, 124, 103, 0.35);
+  --color-secondary: #526442;
+  --color-secondary-container: #d2e6bc;
+  --color-on-secondary-container: #576846;
 
-  --shadow-paper: 0 12px 32px rgba(45, 30, 20, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
-  --shadow-cutout: drop-shadow(4px 8px 14px rgba(40, 25, 15, 0.28));
-  --shadow-locket: inset 0 0 15px rgba(0,0,0,0.4), 0 10px 25px rgba(45, 30, 20, 0.3);
+  --color-tertiary: #775a19;
+  --color-tertiary-container: #e5bd73;
+  --color-on-tertiary-container: #674b0a;
+
+  --border-outline: #827473;
+  --border-outline-variant: #d4c3c2;
 }
 
 [data-theme="night"] {
-  /* Theme: Midnight Forest Sanctuary */
-  --bg-primary: #1a2218;
-  --bg-secondary: #242f22;
-  --bg-card: #222d1f;
-  --bg-blush: #4a2c35;
-  --bg-sage: #2a3a28;
-  --bg-overlay: rgba(26, 34, 24, 0.9);
+  --bg-background: #1e2012;
+  --bg-surface: #1e2012;
+  --bg-surface-low: #262817;
+  --bg-surface-container: #2e301d;
+  --bg-surface-high: #383a24;
+  --bg-surface-highest: #42442c;
 
-  --text-main: #f0e8dc;
-  --text-muted: #b8ac9c;
-  --text-script: #e8a8b0;
+  --text-on-background: #f2f2d9;
+  --text-on-surface: #f2f2d9;
+  --text-on-surface-variant: #d4c3c2;
 
-  --accent-blush: #c48c94;
-  --accent-sage: #8f9e8b;
-  --accent-sage-dark: #aab8a6;
-  --accent-gold: #e5c687;
-  --accent-gold-dark: #f0d7a3;
-  --accent-sepia: #d2c2b4;
+  --color-primary: #e9bcbc;
+  --color-primary-container: #5f3e3f;
+  --color-on-primary-container: #ffdad9;
 
-  --border-sepia: rgba(210, 194, 180, 0.25);
-  --border-gold: rgba(229, 198, 135, 0.45);
-  --border-sage: rgba(143, 158, 139, 0.35);
+  --color-secondary: #b9cda4;
+  --color-secondary-container: #3b4c2c;
+  --color-on-secondary-container: #d5e9bf;
 
-  --shadow-paper: 0 14px 35px rgba(0, 0, 0, 0.5);
-  --shadow-cutout: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.6));
-  --shadow-locket: inset 0 0 15px rgba(0,0,0,0.6), 0 12px 30px rgba(0, 0, 0, 0.5);
+  --color-tertiary: #e9c176;
+  --color-tertiary-container: #5d4201;
+  --color-on-tertiary-container: #ffdea5;
+
+  --border-outline: #9c8e8d;
+  --border-outline-variant: #504444;
 }
 
 /* Global Reset */
@@ -79,208 +79,89 @@ html {
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
+  background-color: var(--bg-background);
+  color: var(--text-on-background);
   font-family: var(--font-body);
-  line-height: 1.7;
+  line-height: 1.6;
   overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
   min-height: 100vh;
-  position: relative;
 }
 
-/* Antique Aged Paper Grain & Sun-Dappled Photo Overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(228, 195, 198, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 85% 85%, rgba(143, 158, 139, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(198, 157, 82, 0.08) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: -1;
+/* Aged Parchment Noise Texture Filter */
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-/* Typography Classes */
-h1, h2, h3, h4 {
+/* Typography Utility Classes */
+.font-display-lg {
   font-family: var(--font-display);
+  font-size: 3.5rem;
   font-weight: 700;
-  line-height: 1.2;
-  color: var(--text-main);
-}
-
-.font-display { font-family: var(--font-display); }
-.font-heading { font-family: var(--font-heading); }
-.font-body { font-family: var(--font-body); }
-.font-script { font-family: var(--font-script); }
-
-/* Handwritten Caption Accent */
-.caption-script {
-  font-family: var(--font-script);
-  font-size: 1.5rem;
-  color: var(--text-script);
   line-height: 1.1;
-  display: inline-block;
-  transform: rotate(-2deg);
+  letter-spacing: -0.02em;
 }
 
-/* Scrapbook Editorial Section Header */
-.editorial-title {
-  font-family: var(--font-display);
-  letter-spacing: -0.01em;
-  color: var(--text-main);
+.font-accent-italic {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.font-body-md {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.font-label-sm {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-/* Torn Paper Snippet Container */
-.torn-paper {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-sepia);
-  box-shadow: var(--shadow-paper);
-  position: relative;
-  border-radius: 4px;
-  clip-path: polygon(0% 0.5%, 15% 0%, 30% 1%, 45% 0%, 60% 0.8%, 75% 0.2%, 90% 1%, 100% 0%, 99.5% 15%, 100% 30%, 99% 45%, 100% 60%, 99.5% 75%, 100% 90%, 99% 100%, 85% 99.5%, 70% 100%, 55% 99.2%, 40% 100%, 25% 99.5%, 10% 100%, 0% 99.5%, 0.5% 85%, 0% 70%, 0.8% 55%, 0% 40%, 0.5% 25%, 0% 10%);
+/* Torn Edge Clipping Masks from Attached Zip */
+.torn-edge-top {
+  clip-path: polygon(0 5%, 5% 0, 15% 4%, 25% 1%, 35% 6%, 45% 2%, 55% 5%, 65% 1%, 75% 6%, 85% 2%, 95% 5%, 100% 0, 100% 100%, 0 100%);
 }
 
-/* Vintage Oval Locket / Mirror Frame */
-.locket-frame {
-  width: 220px;
-  height: 290px;
-  border-radius: 50%;
-  border: 10px solid #c69d52;
-  box-shadow: var(--shadow-locket);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-secondary);
-  outline: 2px solid #7c6030;
-  outline-offset: -6px;
+.torn-edge-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 85% 96%, 75% 99%, 65% 95%, 55% 100%, 45% 96%, 35% 99%, 25% 95%, 15% 100%, 5% 96%, 0 100%);
 }
 
-.locket-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: sepia(0.25) contract(1.05);
-  transition: transform 0.6s ease;
+.torn-edge-all {
+  clip-path: polygon(2% 2%, 9% 0, 20% 3%, 30% 1%, 40% 4%, 50% 0, 60% 3%, 70% 1%, 80% 4%, 90% 0, 98% 2%, 100% 10%, 97% 20%, 99% 30%, 96% 40%, 100% 50%, 97% 60%, 99% 70%, 96% 80%, 100% 90%, 98% 98%, 90% 100%, 80% 97%, 70% 99%, 60% 96%, 50% 100%, 40% 97%, 30% 99%, 20% 96%, 10% 100%, 2% 98%, 0 90%, 3% 80%, 1% 70%, 4% 60%, 0 50%, 3% 40%, 1% 30%, 4% 20%, 0 10%);
 }
 
-.locket-frame:hover img {
-  transform: scale(1.06);
+/* Vintage Locket & Frame Borders */
+.vintage-frame {
+  border: 8px solid;
+  border-image-slice: 1;
+  border-width: 10px;
+  border-image-source: linear-gradient(to right, #e5bd73, #775a19, #e5bd73);
 }
 
-/* Understated Minimal Scrapbook Buttons */
-.btn-minimal {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.8rem;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-main);
-  background: var(--bg-card);
-  border: 1px solid var(--text-main);
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.06);
-  transition: all 0.25s ease;
-  text-decoration: none;
+.scribble-line {
+  stroke: var(--color-primary);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0.6;
 }
 
-.btn-minimal:hover {
-  background: var(--text-main);
-  color: var(--bg-primary);
-  transform: translateY(-2px);
-  box-shadow: 3px 6px 15px rgba(0,0,0,0.12);
-}
-
-.btn-minimal-fill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.8rem;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--bg-primary);
-  background: var(--accent-sage-dark);
-  border: 1px solid var(--accent-sage-dark);
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
-  transition: all 0.25s ease;
-  text-decoration: none;
-}
-
-.btn-minimal-fill:hover {
-  background: var(--text-main);
-  border-color: var(--text-main);
-  transform: translateY(-2px);
-}
-
-/* Minimal Icon Pill / Button */
-.btn-minimal-icon {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border-sepia);
-  border-radius: 20px;
-  background: var(--bg-card);
-  color: var(--text-main);
-  font-size: 0.85rem;
-  font-family: var(--font-body);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.btn-minimal-icon:hover {
-  border-color: var(--text-main);
-  background: var(--bg-secondary);
-}
-
-/* Vintage Wax Seal Emblem Badge */
-.wax-seal-badge {
-  width: 56px;
-  height: 56px;
-  background: radial-gradient(circle at 35% 35%, #9e323b, #611820);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f7e8d0;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3), inset 0 -3px 6px rgba(0,0,0,0.4);
-  border: 2px stroke #c69d52;
+/* Drop Cap */
+.drop-cap::first-letter {
   font-family: var(--font-display);
-  font-weight: bold;
-  font-size: 1.2rem;
-  transform: rotate(-6deg);
-  filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.25));
-}
-
-/* Newsprint / Newspaper Snippet Card */
-.newsprint-card {
-  background: #f4eee2;
-  color: #2b221a;
-  border: 1px solid rgba(120, 95, 75, 0.3);
-  padding: 1.8rem;
-  box-shadow: var(--shadow-paper);
-  position: relative;
-  font-family: 'Lora', serif;
-}
-
-.newsprint-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(120, 95, 75, 0.08) 25px);
-  pointer-events: none;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 10px;
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 /* Custom Scrollbar */
@@ -289,35 +170,25 @@ h1, h2, h3, h4 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-sage);
+  background: var(--color-secondary);
   border-radius: 4px;
-  border: 2px solid var(--bg-primary);
+  border: 2px solid var(--bg-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-sepia);
-}
-
-/* Section Connector Line (Hand-drawn Thread Motif) */
-.connector-thread {
-  position: absolute;
-  pointer-events: none;
-  z-index: 5;
-  stroke: var(--accent-sepia);
-  stroke-dasharray: 4 3;
-  opacity: 0.45;
+  background: var(--color-primary);
 }
 
 /* Floating Animation */
-@keyframes gentleFloat {
+@keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(1.5deg); }
 }
 
 .animate-float {
-  animation: gentleFloat 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }

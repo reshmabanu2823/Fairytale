@@ -1,158 +1,136 @@
 import React from 'react';
-import { BookOpen, Compass, Feather, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden">
-      
-      {/* 1. Full-Bleed Magical Forest Photography Banner */}
-      <div className="relative w-full min-h-[75vh] sm:min-h-[82vh] flex flex-col items-center justify-center text-center px-4 py-20 bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(20, 15, 10, 0.45) 0%, rgba(35, 25, 18, 0.65) 100%), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=80')`
-        }}
-      >
-        {/* Sun-dappled Light Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-400/20 via-transparent to-transparent pointer-events-none" />
-
-        {/* Vintage Botanical Crest Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border border-amber-200/40 bg-black/40 text-amber-200 text-xs font-serif tracking-widest uppercase mb-6 backdrop-blur-md">
-          <Feather className="w-3.5 h-3.5" />
-          <span>Vol. IV • Antique Journal & Moodboard</span>
-          <Feather className="w-3.5 h-3.5" />
+    <section className="w-full flex flex-col items-center">
+      {/* 1. Hero Banner Section (Retrieved from Attached Zip) */}
+      <div className="w-full relative h-[70vh] flex flex-col items-center justify-center overflow-hidden mb-16">
+        <div className="absolute inset-0 z-0 bg-[var(--bg-surface-high)]">
+          <img
+            className="w-full h-full object-cover opacity-80 mix-blend-multiply"
+            alt="Sun-dappled magical forest path with lush greenery and ancient trees"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCqT_udrMakSfV0wdR5_SLodKzL0vnWS1p7wO7LEWoNVfdQXVe4xuuavO2njRhbbFVqq1Cttqj1r98uE2VB17kYLq-vspEgdSnGTmsgzALqMn7fWq_NTYiF2phbtzyurkkDo4u1fGUli1TOg-WGWIRD_hKXvGt7ZC9w0Dtk84NoovEgxGalnjAOPV9Hrwn8-wgqojlfEVuFlDCoyin3yO7rpH9kcIO7ZoeMEDqvoGOndo_LHeuqFxLVFTU8R5by4MLvA"
+          />
         </div>
 
-        {/* Bold Editorial Serif Display Title (MEDITATION INSIGHT style) */}
-        <h1 className="text-5xl sm:text-7xl md:text-9xl font-black font-display tracking-tight text-[#f7f2e7] max-w-6xl mb-4 uppercase drop-shadow-md">
-          Tales of Aetheria
-        </h1>
+        {/* Floating Paper Title Card */}
+        <div className="relative z-10 text-center px-[5vw] flex flex-col items-center bg-[var(--bg-surface-container)]/60 backdrop-blur-sm p-8 rounded-lg border border-[var(--border-outline-variant)]/30 transform rotate-1 shadow-lg max-w-3xl">
+          <h1 className="font-display-lg text-4xl sm:text-6xl md:text-7xl text-[var(--color-tertiary)] drop-shadow-md mb-4 font-bold tracking-tight">
+            AETHERIA
+          </h1>
+          <p className="font-accent-italic text-accent-italic text-[var(--text-on-surface-variant)] text-lg sm:text-2xl max-w-2xl text-center mb-6">
+            Ethereal ephemera and transformation meditations for those ready to find themselves and lay the foundation of their desired life.
+          </p>
 
-        {/* Handwritten Italic Caption */}
-        <p className="caption-script text-2xl sm:text-4xl text-amber-200 italic mb-8 max-w-2xl text-shadow-sm">
-          "My development in fairytale magic has changed my life"
-        </p>
-
-        {/* Minimal Understated Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 z-10">
-          <a
-            href="#chapters"
-            className="btn-minimal bg-[#f7f2e7] text-[#36291e] hover:bg-[#36291e] hover:text-[#f7f2e7] font-medium"
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>Open Storybook</span>
-          </a>
-          
-          <a
-            href="#archetype-quiz"
-            className="btn-minimal bg-transparent text-white border-white/60 hover:bg-white hover:text-[#36291e] font-medium"
-          >
-            <Compass className="w-4 h-4" />
-            <span>Discover Archetype</span>
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#chapters"
+              className="bg-[var(--bg-surface)] text-[var(--color-primary)] border border-[var(--color-primary)] px-6 py-2.5 font-label-sm text-xs hover:bg-[var(--color-primary-container)] transition-colors shadow-sm uppercase font-semibold"
+            >
+              Open Storybook
+            </a>
+            <a
+              href="#archetype-quiz"
+              className="text-[var(--text-on-surface-variant)] border-b border-[var(--border-outline)] px-4 py-2.5 font-label-sm text-xs hover:text-[var(--color-primary)] transition-colors uppercase font-semibold"
+            >
+              Discover Archetype
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* 2. Soft Blush Pink Scrapbook Spread Content Section below Hero */}
-      <div className="relative py-24 px-4 sm:px-6 lg:px-8 bg-[#e8c5c8] text-[#36291e] border-t border-b border-[#d8b0b4]">
+      {/* 2. Scrapbook Moodboard Content Area (Retrieved from Attached Zip) */}
+      <div className="w-full bg-[var(--color-primary-container)]/30 px-[5vw] py-16 torn-edge-top torn-edge-bottom relative min-h-screen">
         
-        {/* SVG Looping Connector Thread Lines across Asymmetric Scrapbook Elements */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M 150 180 C 350 80, 550 350, 750 180 C 950 40, 1100 450, 850 550"
-            fill="none"
-            stroke="#4a3a2c"
-            strokeWidth="1.8"
-            strokeDasharray="5 4"
-          />
+        {/* SVG Connector Lines Overlay */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none">
+          <path className="scribble-line" d="M 200,150 Q 400,200 600,100 T 800,300" />
+          <path className="scribble-line" d="M 300,500 C 500,600 200,800 600,900" />
         </svg>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8">
           
-          {/* Quote Header */}
-          <div className="text-center mb-16">
-            <span className="caption-script text-3xl sm:text-4xl text-[#7c2a38] block mb-2">
-              "Whispers from the Sun-Dappled Glade"
-            </span>
-            <p className="font-heading text-lg sm:text-xl text-[#5c4738] max-w-2xl mx-auto italic font-medium">
-              A curated collection of vintage lore, botanical cutouts, and ancient kingdom chronicles.
+          {/* Quote Section */}
+          <div className="col-span-1 md:col-span-12 text-center my-6 transform -rotate-2">
+            <p className="font-accent-italic text-accent-italic text-[var(--color-primary)] text-2xl md:text-4xl max-w-3xl mx-auto">
+              "My development in meditation and botanical observation has profoundly altered my perception of the realm."
             </p>
           </div>
 
-          {/* Asymmetric Scrapbook Moodboard Spread Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-            
-            {/* Collage Item 1: Torn Newspaper Snippet & Vintage Photo */}
-            <div className="relative group self-start">
-              <div className="torn-paper p-6 bg-[#f7f2e7] transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <span className="caption-script text-xl text-[#7c2a38] block mb-1">
-                  happiness
-                </span>
-                <p className="font-serif text-xs text-[#5c4738] leading-relaxed mb-4">
-                  150 to 200 lbs. The flesh of elder oaks is resilient and sweet. In 5 years, values alter...
-                </p>
-                <div className="w-full h-44 rounded overflow-hidden border border-[#d8b0b4]">
-                  <img
-                    src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=800&q=80"
-                    alt="Sunlit Forest Glade"
-                    className="w-full h-full object-cover filter sepia-25"
-                  />
-                </div>
-              </div>
-              <span className="caption-script text-lg text-[#5c4738] block mt-2 ml-4">
+          {/* Scrap 1: Text & Botanical Sketch */}
+          <div className="col-span-1 md:col-span-5 flex flex-col gap-4 mt-8 transform rotate-1">
+            <div className="bg-[var(--bg-surface)] p-6 shadow-md torn-edge-all relative">
+              <p className="font-body-md text-body-md text-[var(--text-on-surface-variant)] leading-relaxed text-sm">
+                The flora collected in these pages represents countless hours wandering the eastern glades. Note the delicate structure of the moonflower petals.
+              </p>
+            </div>
+
+            <div className="relative w-full aspect-square -mt-6 ml-4 z-10 transform -rotate-3">
+              <img
+                className="w-full h-full object-cover shadow-lg torn-edge-all border-4 border-[var(--bg-surface)]"
+                alt="Vintage botanical sketch of a rare flower on aged parchment paper"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXJGjUnSC-yahOVoiyhwqOzPh4-R_yH-st3gkmO2J4LH21BbElmrVAwNf7KolPSfUQAPvJ6-Mi7ARQ9Hkomg3dTdwyapM-B35sgDgs1TLOh8c7465xc5WI129SklilnpH6VmT8OacaBTcmW3kZUq0L33ukrF3C9Qrp0WsY-4epHnXGjC5SVGc5VjyEUlEIBWtNasm815HQ46MPjsdvkfA-40kyQ8I9s1K7u5UKtndSNg5NoxdacGKHkaOeqpnf8BLeoQ"
+              />
+              <span className="absolute -bottom-4 -right-4 font-accent-italic text-accent-italic text-[var(--color-tertiary)] bg-[var(--bg-surface)]/90 px-3 py-1 rounded transform rotate-6 shadow-xs">
                 pacification
               </span>
             </div>
+          </div>
 
-            {/* Collage Item 2: Vintage Gold Oval Locket / Mirror Frame Centerpiece */}
-            <div className="flex flex-col items-center justify-center my-4 md:my-0">
-              <div className="locket-frame shadow-2xl hover:scale-105 transition-transform duration-500">
+          {/* Scrap 2: Vintage Locket Portrait */}
+          <div className="col-span-1 md:col-span-4 md:col-start-8 flex flex-col items-center mt-4">
+            <div className="relative transform rotate-3">
+              <div className="w-48 h-64 rounded-[40%] overflow-hidden vintage-frame shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
-                  alt="Fairy Realm Portrait"
+                  className="w-full h-full object-cover"
+                  alt="A vintage faded photograph of a fairy maiden reading a book in a lush garden, sepia toned"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZHtKSomsLQyC6KMmoU38LaVD_JUkeX2sHP95xCOsJguNUmThEPPX57MVUkZgZh1QEI10lyEZ-kMCB4Qesxqmwy37lt9b-WNE55_V2lmV8Q2Sgasji75AZMDkY_OK6XKptgr_Op-c6t65OWGeTE4qcLz5y1ya7zp-NnwcUe-9JCxS5_MnL4BYBGVaWEiF5pmr51RqHGCFkLiNxP6sa7RezhbrN6a9Z8F3oypZAfG7o4foECDgSl3Df"
                 />
               </div>
-
-              {/* Wax Seal Badge Cutout */}
-              <div className="wax-seal-badge -mt-6 z-20">
-                <span>✦</span>
-              </div>
-
-              <span className="caption-script text-2xl text-[#7c2a38] mt-3">
-                fairy garden
+              <span className="absolute -top-6 -left-8 font-accent-italic text-accent-italic text-[var(--color-secondary)] text-2xl transform -rotate-12">
+                happiness
               </span>
             </div>
 
-            {/* Collage Item 3: Botanical Cutout & Newspaper Snippet */}
-            <div className="relative group self-end">
-              <div className="torn-paper p-6 bg-[#f7f2e7] transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-44 rounded overflow-hidden mb-3 border border-[#d8b0b4]">
-                  <img
-                    src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80"
-                    alt="Wild Woodland Ferns"
-                    className="w-full h-full object-cover filter sepia-25"
-                  />
-                </div>
-                <p className="font-serif text-xs text-[#5c4738] leading-relaxed">
-                  and length preserved. My imagination, unbidden, gifted me with a vividness far beyond warmth...
-                </p>
-                <span className="caption-script text-xl text-[#7c2a38] block mt-2 text-right">
-                  freedom
-                </span>
-              </div>
+            <div className="bg-[var(--bg-surface-low)] px-4 py-2 mt-8 transform -rotate-2 border border-[var(--border-outline-variant)] shadow-sm w-52 text-center">
+              <p className="font-label-sm text-xs text-[var(--text-on-surface)] font-bold">
+                FAIRY GARDEN
+              </p>
+              <p className="text-[10px] tracking-widest text-[var(--text-on-surface-variant)] uppercase mt-0.5">
+                Please step carefully
+              </p>
             </div>
-
           </div>
 
-          {/* Bottom Editorial Caption Statement */}
-          <div className="mt-16 text-center pt-8 border-t border-[#d8b0b4]">
-            <p className="font-heading text-lg sm:text-2xl text-[#36291e] max-w-3xl mx-auto italic">
-              "This project is the last opportunity to get in touch with the materials of past streams that have changed the lives of many."
-            </p>
+          {/* Scrap 3: Lower Pond & Swan Image with Text */}
+          <div className="col-span-1 md:col-span-6 md:col-start-5 mt-16 flex flex-col md:flex-row items-end gap-4 transform -rotate-1">
+            <div className="w-full md:w-1/2 aspect-[4/3] bg-[var(--bg-surface)] p-2 shadow-md rounded">
+              <img
+                className="w-full h-full object-cover rounded"
+                alt="A serene pond with a white swan swimming amongst blooming water lilies, impressionist style"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFSz0VEyktmHwBQ1WA-4D8_ymSS3nOG2Hn5F02hcxCrviyQvDKxKKCDLC1wO5SexymRs90BAthIsBDnEBXghhsSK5tbrW1cyyMjt_svtzxPFo4N0BdIRgBAzAEv_eJNrJ12pBI-E2iBKvGy9V-iiSH_3qOA6y22wjE-9_sXBl82fNW8t1vQVnmEmyosLU1dKt1JPvAFz3oaF2W0p1aq_cO5XA1ymtC28Qieju6Miknmdr19I0CuY48"
+              />
+            </div>
+            <div className="bg-[var(--bg-surface)] p-4 shadow-sm torn-edge-all max-w-xs transform rotate-2 relative">
+              <p className="font-body-md text-body-md text-[var(--text-on-surface-variant)] text-xs leading-relaxed">
+                Found along the riverbank. The silence here is thick enough to seal inside an envelope.
+              </p>
+              <span className="absolute -bottom-5 left-4 font-accent-italic text-accent-italic text-[var(--color-primary)] text-xl">
+                freedom
+              </span>
+            </div>
           </div>
 
         </div>
 
-      </div>
+        {/* Bottom Statement */}
+        <div className="mt-16 text-center transform rotate-1 pb-6">
+          <p className="font-body-md text-body-md text-[var(--text-on-surface-variant)] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+            This project is the last opportunity to get in touch with the materials of past streams that have changed the lives of many.
+          </p>
+        </div>
 
+      </div>
     </section>
   );
 }

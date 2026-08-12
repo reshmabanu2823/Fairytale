@@ -12,7 +12,6 @@ import ArchetypeQuiz from './components/ArchetypeQuiz';
 import WishcraftGenerator from './components/WishcraftGenerator';
 import Footer from './components/Footer';
 import { FAIRYTALE_CHAPTERS } from './data/chaptersData';
-import { Bookmark, X, BookOpen } from 'lucide-react';
 
 export default function App() {
   const [theme, setTheme] = useState('daylight');
@@ -45,18 +44,18 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--accent-gold)] selection:text-[#2b1f17] font-body">
+    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--color-primary-container)] selection:text-[var(--color-on-primary-container)] font-body-md">
       
       {/* Sun-dappled Light Motes & Botanical Pollen Canvas */}
       <SparkleCanvas />
 
-      {/* Floating Vintage Viewport Butterflies */}
+      {/* Floating Viewport Butterflies */}
       <FloatingButterflies />
 
-      {/* Interactive Curious Cursor-Following Moth/Butterfly */}
+      {/* Interactive Curious Cursor-Following Moth */}
       <CursorButterfly />
 
-      {/* Understated Editorial Scrapbook Navbar */}
+      {/* Ethereal Ephemera Navbar */}
       <Navbar
         theme={theme}
         setTheme={setTheme}
@@ -67,7 +66,7 @@ export default function App() {
       />
 
       {/* Main Content Layout */}
-      <main className="relative z-10">
+      <main className="flex-grow pt-16 flex flex-col items-center">
         <Hero />
         <AboutSection />
         <ChaptersSection
@@ -80,7 +79,7 @@ export default function App() {
         <WishcraftGenerator />
       </main>
 
-      {/* Closing Book Footer */}
+      {/* Ethereal Ephemera Footer */}
       <Footer />
 
       {/* Storybook Reader Modal */}
@@ -96,25 +95,25 @@ export default function App() {
       {/* Bookmarks Quick Modal */}
       {showBookmarksModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-          <div className="torn-paper w-full max-w-lg p-6 sm:p-8 bg-[var(--bg-card)] border border-[var(--border-sepia)] shadow-2xl relative max-h-[80vh] flex flex-col justify-between">
+          <div className="w-full max-w-lg p-6 bg-[var(--bg-surface)] rounded-lg shadow-2xl torn-edge-all border border-[var(--border-outline-variant)]/50 relative max-h-[80vh] flex flex-col justify-between">
             
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-sepia)] mb-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[var(--border-outline-variant)]/30 mb-3">
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-[var(--accent-gold-dark)]" />
-                <h3 className="font-display font-bold text-lg text-[var(--text-main)] uppercase">
+                <span className="material-symbols-outlined text-lg text-[var(--color-primary)]">bookmark</span>
+                <h3 className="font-display font-bold text-base text-[var(--text-on-surface)]">
                   Bookmarked Tales ({bookmarkedChapters.length})
                 </h3>
               </div>
 
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="btn-minimal-icon"
+                className="p-1 text-[var(--text-on-surface-variant)] hover:text-[var(--color-primary)]"
               >
-                <X className="w-4 h-4" />
+                <span className="material-symbols-outlined text-lg">close</span>
               </button>
             </div>
 
-            <div className="overflow-y-auto space-y-3 my-2 pr-1 custom-scrollbar">
+            <div className="overflow-y-auto space-y-2 my-2 pr-1 custom-scrollbar">
               {bookmarkedChapters.map((c) => (
                 <div
                   key={c.id}
@@ -122,25 +121,25 @@ export default function App() {
                     setSelectedChapter(c);
                     setShowBookmarksModal(false);
                   }}
-                  className="p-4 rounded border border-[var(--border-sepia)] bg-[var(--bg-secondary)] hover:border-[var(--text-main)] cursor-pointer flex items-center justify-between transition-colors group"
+                  className="p-3 rounded bg-[var(--bg-surface-low)] border border-[var(--border-outline-variant)]/40 hover:border-[var(--color-primary)] cursor-pointer flex items-center justify-between transition-colors group"
                 >
                   <div>
-                    <span className="font-display text-[10px] uppercase text-[var(--text-muted)] font-bold">
+                    <span className="font-label-sm text-[10px] text-[var(--color-tertiary)] font-bold">
                       {c.chapterNum}
                     </span>
-                    <h4 className="font-display font-bold text-base text-[var(--text-main)] group-hover:text-[var(--accent-gold-dark)] transition-colors">
+                    <h4 className="font-display font-bold text-sm text-[var(--text-on-surface)] group-hover:text-[var(--color-primary)] transition-colors">
                       {c.title}
                     </h4>
                   </div>
-                  <BookOpen className="w-4 h-4 text-[var(--accent-gold-dark)]" />
+                  <span className="material-symbols-outlined text-base text-[var(--color-primary)]">menu_book</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-[var(--border-sepia)] text-center">
+            <div className="pt-3 border-t border-[var(--border-outline-variant)]/30 text-center">
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="btn-minimal text-xs py-2 px-6 uppercase tracking-wider"
+                className="px-4 py-1.5 rounded-full bg-[var(--bg-surface-low)] text-[var(--text-on-surface-variant)] font-label-sm text-xs hover:text-[var(--color-primary)] border border-[var(--border-outline-variant)]/40"
               >
                 Close Bookmarks
               </button>

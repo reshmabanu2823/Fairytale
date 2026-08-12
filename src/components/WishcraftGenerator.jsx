@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { WISHCRAFT_FORTUNES } from '../data/chaptersData';
-import { Wand2, Scroll } from 'lucide-react';
 
 export default function WishcraftGenerator() {
   const [fortune, setFortune] = useState(
@@ -18,52 +17,51 @@ export default function WishcraftGenerator() {
   };
 
   return (
-    <section id="wishcraft" className="py-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      
+    <section id="wishcraft" className="py-20 px-[5vw] max-w-4xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-14">
-        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Daily Enchantment</span>
-        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
+      <div className="text-center mb-12">
+        <span className="font-accent-italic text-accent-italic text-2xl text-[var(--color-tertiary)] block mb-1">
+          Daily Locket Enchantment
+        </span>
+        <h2 className="font-display-lg text-3xl sm:text-5xl text-[var(--color-primary)] font-bold">
           Wishcraft & Fortune Scroll
         </h2>
-        <p className="font-body text-base sm:text-lg text-[var(--text-muted)] max-w-md mx-auto mt-2 italic">
+        <p className="font-body-md text-sm sm:text-base text-[var(--text-on-surface-variant)] max-w-md mx-auto mt-2 italic">
           Consult the starlight oracle for your daily fairytale wisdom.
         </p>
-        <div className="flourish-divider max-w-xs mx-auto">
-          <span>✦ 🪄 ✦</span>
-        </div>
       </div>
 
-      {/* Torn Paper Fortune Card */}
-      <div className="torn-paper p-8 sm:p-12 bg-[var(--bg-card)] border border-[var(--border-sepia)] text-center relative">
-        
-        <Scroll className="w-12 h-12 text-[var(--accent-gold-dark)] mx-auto mb-4 animate-float" />
-
-        <span className="font-display text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">
-          Oracle Scroll of Eldoria
+      {/* Torn Edge Fortune Card */}
+      <div className="bg-[var(--bg-surface)] p-8 sm:p-12 shadow-lg torn-edge-all border border-[var(--border-outline-variant)]/40 text-center relative">
+        <span className="material-symbols-outlined text-4xl text-[var(--color-tertiary)] mb-2 animate-float">
+          auto_awesome
         </span>
 
+        <p className="font-label-sm text-xs text-[var(--text-on-surface-variant)] uppercase font-bold tracking-widest mb-4">
+          Oracle Scroll of Eldoria
+        </p>
+
         {/* Fortune Display */}
-        <div className="my-8 min-h-[110px] flex items-center justify-center">
-          <blockquote className={`font-heading italic text-xl sm:text-2xl text-[var(--text-main)] max-w-xl transition-all duration-500 font-semibold ${
+        <div className="my-6 min-h-[90px] flex items-center justify-center">
+          <blockquote className={`font-accent-italic text-accent-italic text-2xl sm:text-3xl text-[var(--color-primary)] max-w-xl transition-all duration-500 ${
             isCasting ? 'opacity-20 scale-95 blur-sm' : 'opacity-100 scale-100'
           }`}>
             "{fortune}"
           </blockquote>
         </div>
 
-        {/* Minimal Button */}
+        {/* Action Button */}
         <button
           onClick={handleCastWish}
           disabled={isCasting}
-          className="btn-minimal-fill mx-auto font-medium uppercase text-xs tracking-wider"
+          className="bg-[var(--color-secondary-container)] text-[var(--color-on-secondary-container)] px-6 py-2.5 rounded-full font-label-sm text-xs hover:bg-[var(--color-secondary-container)]/80 transition-colors flex items-center justify-center gap-2 mx-auto shadow-xs"
         >
-          <Wand2 className={`w-4 h-4 ${isCasting ? 'animate-spin' : ''}`} />
+          <span className={`material-symbols-outlined text-base ${isCasting ? 'animate-spin' : ''}`}>
+            auto_fix_high
+          </span>
           <span>{isCasting ? 'Consulting Oracle...' : 'Unroll New Fortune'}</span>
         </button>
-
       </div>
-
     </section>
   );
 }
