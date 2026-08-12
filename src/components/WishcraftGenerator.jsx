@@ -22,8 +22,8 @@ export default function WishcraftGenerator() {
       
       {/* Section Header */}
       <div className="text-center mb-14">
-        <span className="font-script text-3xl text-[var(--accent-gold)]">Daily Enchantment</span>
-        <h2 className="text-4xl sm:text-6xl font-black font-display mt-1 text-[var(--text-main)]">
+        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Daily Enchantment</span>
+        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
           Wishcraft & Fortune Scroll
         </h2>
         <p className="font-body text-base sm:text-lg text-[var(--text-muted)] max-w-md mx-auto mt-2 italic">
@@ -34,12 +34,12 @@ export default function WishcraftGenerator() {
         </div>
       </div>
 
-      {/* Glassmorphic Fortune Scroll Card */}
-      <div className="glass-card p-8 sm:p-12 border-2 border-[var(--border-pink)] text-center shadow-2xl relative">
+      {/* Torn Paper Fortune Card */}
+      <div className="torn-paper p-8 sm:p-12 bg-[var(--bg-card)] border border-[var(--border-sepia)] text-center relative">
         
-        <Scroll className="w-12 h-12 text-[var(--accent-magenta)] mx-auto mb-4 animate-float" />
+        <Scroll className="w-12 h-12 text-[var(--accent-gold-dark)] mx-auto mb-4 animate-float" />
 
-        <span className="font-display text-xs uppercase tracking-widest text-[var(--accent-magenta)] font-bold">
+        <span className="font-display text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">
           Oracle Scroll of Eldoria
         </span>
 
@@ -52,14 +52,14 @@ export default function WishcraftGenerator() {
           </blockquote>
         </div>
 
-        {/* Cast Button Pill */}
+        {/* Minimal Button */}
         <button
           onClick={handleCastWish}
           disabled={isCasting}
-          className="btn-pill-glam mx-auto"
+          className="btn-minimal-fill mx-auto font-medium uppercase text-xs tracking-wider"
         >
           <Wand2 className={`w-4 h-4 ${isCasting ? 'animate-spin' : ''}`} />
-          <span>{isCasting ? 'Consulting Stars...' : 'Unroll New Fortune'}</span>
+          <span>{isCasting ? 'Consulting Oracle...' : 'Unroll New Fortune'}</span>
         </button>
 
       </div>

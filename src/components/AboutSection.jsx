@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, Feather, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, Feather } from 'lucide-react';
 
 export default function AboutSection() {
   const [activeTab, setActiveTab] = useState('lore');
@@ -13,7 +13,7 @@ export default function AboutSection() {
     },
     guild: {
       title: "The Guild of Storysmiths",
-      text: "We are the Keepers of the Whispering Codex. Our scribes travel from the crystal spires of Mount Celestia to the bioluminescent trenches of the Sapphire Gulf, gathering tales before they fade into shadow. Bound in satin and illuminated with champagne gold leaf, each chronicle is preserved for dreamers across eras.",
+      text: "We are the Keepers of the Whispering Codex. Our scribes travel from the crystal spires of Mount Celestia to the bioluminescent trenches of the Sapphire Gulf, gathering tales before they fade into shadow. Bound in linen and illuminated with warm gold leaf, each chronicle is preserved for dreamers across eras.",
       quote: "'A story forgotten is a star extinguished; a story retold is a flame reborn.'"
     },
     fate: {
@@ -51,35 +51,35 @@ export default function AboutSection() {
       
       {/* Section Header */}
       <div className="text-center mb-14">
-        <span className="font-script text-3xl text-[var(--accent-gold)]">Prologue</span>
-        <h2 className="text-4xl sm:text-6xl font-black font-display mt-1 text-[var(--text-main)]">
+        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Prologue</span>
+        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
           The Chronicles of Eldoria
         </h2>
         <div className="flourish-divider max-w-xs mx-auto">
-          <span>✦ 📜 ✦</span>
+          <span>✦ 🌿 ✦</span>
         </div>
       </div>
 
-      {/* Main Glassmorphic Card Container */}
-      <div className="glass-card p-8 sm:p-12 border-2 border-[var(--border-pink)] shadow-2xl relative">
+      {/* Main Torn Paper Journal Container */}
+      <div className="torn-paper p-8 sm:p-14 bg-[var(--bg-card)] border border-[var(--border-sepia)] relative">
         
-        {/* Story Tab Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10 pb-6 border-b border-[var(--border-pink)]/30">
+        {/* Story Tab Buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10 pb-6 border-b border-[var(--border-sepia)]">
           <button
             onClick={() => { setActiveTab('lore'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={activeTab === 'lore' ? 'btn-pill-glam text-xs py-2 px-5' : 'btn-pill-outline text-xs py-2 px-5'}
+            className={`btn-minimal-icon ${activeTab === 'lore' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
           >
             The Realm Lore
           </button>
           <button
             onClick={() => { setActiveTab('guild'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={activeTab === 'guild' ? 'btn-pill-glam text-xs py-2 px-5' : 'btn-pill-outline text-xs py-2 px-5'}
+            className={`btn-minimal-icon ${activeTab === 'guild' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
           >
             Storysmith Guild
           </button>
           <button
             onClick={() => { setActiveTab('fate'); setIsSpeaking(false); window.speechSynthesis?.cancel(); }}
-            className={activeTab === 'fate' ? 'btn-pill-glam text-xs py-2 px-5' : 'btn-pill-outline text-xs py-2 px-5'}
+            className={`btn-minimal-icon ${activeTab === 'fate' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : ''}`}
           >
             Weavers of Fate
           </button>
@@ -88,21 +88,21 @@ export default function AboutSection() {
         {/* Narrative Text Content */}
         <div className="relative">
           
-          {/* Audio Speech Narration Toggle Pill */}
+          {/* Audio Speech Narration Toggle Button */}
           <button
             onClick={handleSpeak}
-            className={`btn-pill-outline text-xs py-2 px-4 gap-2 absolute top-0 right-0 ${
-              isSpeaking ? 'bg-[var(--accent-magenta)] text-white border-transparent animate-pulse' : ''
+            className={`btn-minimal-icon absolute top-0 right-0 ${
+              isSpeaking ? 'bg-[var(--accent-sage-dark)] text-white' : ''
             }`}
             title={isSpeaking ? "Stop Narration" : "Listen to Narrator"}
           >
-            {isSpeaking ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[var(--accent-magenta)]" />}
-            <span className="hidden sm:inline font-bold">
+            {isSpeaking ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[var(--accent-gold-dark)]" />}
+            <span className="hidden sm:inline font-body text-xs">
               {isSpeaking ? "Stop Voice" : "Listen to Legend"}
             </span>
           </button>
 
-          <h3 className="text-2xl sm:text-3xl font-bold font-display text-[var(--accent-magenta)] mb-6 pr-36">
+          <h3 className="text-2xl sm:text-3xl font-bold font-display text-[var(--text-main)] mb-6 pr-36">
             {currentContent.title}
           </h3>
 
@@ -110,23 +110,23 @@ export default function AboutSection() {
             {currentContent.text}
           </p>
 
-          <blockquote className="border-l-4 border-[var(--accent-magenta)] pl-5 italic font-heading text-[var(--text-muted)] text-lg my-8 bg-[var(--accent-lilac)]/30 py-4 rounded-r-2xl">
+          <blockquote className="border-l-4 border-[var(--accent-gold)] pl-5 italic font-heading text-[var(--text-muted)] text-lg my-8 bg-[var(--bg-secondary)]/50 py-4 rounded-r-lg">
             {currentContent.quote}
           </blockquote>
 
         </div>
 
         {/* Closing Signature & Wax Seal */}
-        <div className="mt-10 pt-6 border-t border-[var(--border-pink)]/30 flex items-center justify-between">
+        <div className="mt-10 pt-6 border-t border-[var(--border-sepia)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Feather className="w-5 h-5 text-[var(--accent-magenta)]" />
-            <span className="font-script text-2xl text-[var(--text-main)]">
+            <Feather className="w-5 h-5 text-[var(--accent-gold-dark)]" />
+            <span className="caption-script text-2xl text-[var(--text-main)]">
               Chronicles Keeper Morwenna
             </span>
           </div>
 
-          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#e02575] to-[#fbbf24] p-0.5 shadow-lg flex items-center justify-center text-white font-bold text-lg">
-            ★
+          <div className="wax-seal-badge">
+            <span>★</span>
           </div>
         </div>
 

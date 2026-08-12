@@ -1,5 +1,5 @@
 import React from 'react';
-import { Moon, Sun, Volume2, VolumeX, Bookmark, Sparkles } from 'lucide-react';
+import { Moon, Sun, Volume2, VolumeX, Bookmark, Feather } from 'lucide-react';
 import { toggleAmbientAudio } from '../utils/audioSynth';
 
 export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookmarkCount, onOpenBookmarks }) {
@@ -14,76 +14,72 @@ export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookm
   };
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl border-b border-[var(--border-pink)] bg-[var(--bg-glass)] shadow-md transition-all duration-300">
+    <header className="sticky top-0 z-40 backdrop-blur-md border-b border-[var(--border-sepia)] bg-[var(--bg-overlay)] shadow-xs transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
         
-        {/* Logo emblem */}
+        {/* Vintage Wax Seal Logo Emblem */}
         <a href="#" className="flex items-center gap-3 group text-decoration-none">
-          <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#e02575] via-[#ec4899] to-[#fbbf24] p-0.5 shadow-md group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-[var(--bg-card)] rounded-full flex items-center justify-center font-display font-black text-sm text-[var(--accent-magenta)]">
-              AE
-            </div>
+          <div className="wax-seal-badge group-hover:scale-105 transition-transform">
+            <span>AE</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-xl sm:text-2xl font-black tracking-wide glam-title">
+            <span className="font-display text-xl sm:text-2xl font-black tracking-wider text-[var(--text-main)] group-hover:text-[var(--accent-gold-dark)] transition-colors">
               AETHERIA
             </span>
-            <span className="font-script text-xs text-[var(--accent-gold)] -mt-1 tracking-widest">
-              Glam Fairycore Chronicles
+            <span className="caption-script text-sm text-[var(--accent-gold-dark)] -mt-1">
+              botanical journal & lore
             </span>
           </div>
         </a>
 
-        {/* Spaced Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 font-body text-sm font-semibold">
+        {/* Minimal Understated Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-8 font-body text-sm font-medium">
           <a
             href="#about"
-            className="px-4 py-2 rounded-full text-[var(--text-main)] hover:text-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/60 transition-all"
+            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
           >
-            The Legend
+            <span>The Legend</span>
           </a>
           <a
             href="#chapters"
-            className="px-4 py-2 rounded-full text-[var(--text-main)] hover:text-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/60 transition-all"
+            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
           >
-            Storybook Tales
+            <span>Storybook Tales</span>
           </a>
           <a
             href="#realm-map"
-            className="px-4 py-2 rounded-full text-[var(--text-main)] hover:text-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/60 transition-all"
+            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
           >
-            Realm Cartography
+            <span>Cartography</span>
           </a>
           <a
             href="#archetype-quiz"
-            className="px-4 py-2 rounded-full text-[var(--text-main)] hover:text-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/60 transition-all"
+            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
           >
-            Calling Quiz
+            <span>Calling Quiz</span>
           </a>
           <a
             href="#wishcraft"
-            className="px-4 py-2 rounded-full text-[var(--text-main)] hover:text-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/60 transition-all"
+            className="text-[var(--text-main)] hover:text-[var(--accent-gold-dark)] transition-colors relative py-1"
           >
-            Wishcraft
+            <span>Wishcraft</span>
           </a>
         </nav>
 
-        {/* Glossy Pill Action Buttons */}
+        {/* Minimal Understated Action Buttons */}
         <div className="flex items-center gap-3">
           
           {/* Audio Chimes Button */}
           <button
             onClick={handleAudioToggle}
-            className={`btn-pill-outline text-xs px-4 py-2 gap-2 font-bold ${
-              isAudioOn
-                ? 'bg-gradient-to-r from-[#e02575] to-[#ec4899] text-white border-transparent shadow-[var(--shadow-pill)]'
-                : ''
+            className={`btn-minimal-icon ${
+              isAudioOn ? 'bg-[var(--accent-sage)] text-white border-transparent' : ''
             }`}
             title={isAudioOn ? 'Mute Chimes' : 'Play Fairy Chimes'}
           >
-            {isAudioOn ? <Volume2 className="w-4 h-4 animate-bounce" /> : <VolumeX className="w-4 h-4 text-[var(--accent-magenta)]" />}
-            <span className="hidden sm:inline">
-              {isAudioOn ? 'Chimes On' : 'Fairy Music'}
+            {isAudioOn ? <Volume2 className="w-4 h-4 animate-bounce" /> : <VolumeX className="w-4 h-4" />}
+            <span className="hidden sm:inline font-body text-xs">
+              {isAudioOn ? 'Chimes On' : 'Chimes'}
             </span>
           </button>
 
@@ -91,11 +87,11 @@ export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookm
           {bookmarkCount > 0 && (
             <button
               onClick={onOpenBookmarks}
-              className="btn-icon-pill relative"
+              className="btn-minimal-icon relative"
               title="View Bookmarks"
             >
-              <Bookmark className="w-4 h-4 fill-current" />
-              <span className="absolute -top-1 -right-1 bg-[#e02575] text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-md border-2 border-[var(--bg-primary)]">
+              <Bookmark className="w-4 h-4 fill-current text-[var(--accent-blush)]" />
+              <span className="bg-[var(--accent-sepia)] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                 {bookmarkCount}
               </span>
             </button>
@@ -104,10 +100,10 @@ export default function Navbar({ theme, setTheme, isAudioOn, setIsAudioOn, bookm
           {/* Theme Switcher Button */}
           <button
             onClick={toggleTheme}
-            className="btn-icon-pill"
-            title={theme === 'daylight' ? 'Switch to Midnight Court' : 'Switch to Daylight Glam'}
+            className="btn-minimal-icon"
+            title={theme === 'daylight' ? 'Switch to Midnight Sanctuary' : 'Switch to Botanical Parchment'}
           >
-            {theme === 'daylight' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-400" />}
+            {theme === 'daylight' ? <Moon className="w-4 h-4 text-[var(--accent-sepia)]" /> : <Sun className="w-4 h-4 text-[var(--accent-gold)]" />}
           </button>
 
         </div>

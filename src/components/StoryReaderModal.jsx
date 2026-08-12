@@ -53,63 +53,63 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md overflow-y-auto">
       
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl glass-card border-4 border-[var(--border-pink)] rounded-3xl shadow-2xl p-6 sm:p-12 overflow-hidden max-h-[90vh] flex flex-col justify-between">
+      <div className="relative w-full max-w-4xl torn-paper bg-[var(--bg-card)] border-2 border-[var(--border-sepia)] rounded-lg shadow-2xl p-6 sm:p-12 overflow-hidden max-h-[90vh] flex flex-col justify-between">
         
         {/* Top Controls Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-[var(--border-pink)]/30 mb-6">
+        <div className="flex items-center justify-between pb-4 border-b border-[var(--border-sepia)] mb-6">
           
           <div className="flex items-center gap-3">
-            <span className="font-display text-xs uppercase tracking-widest px-3.5 py-1 rounded-full bg-gradient-to-r from-[#e02575] to-[#ec4899] text-white font-bold">
+            <span className="font-display text-xs uppercase tracking-widest px-3 py-1 rounded border border-[var(--border-sepia)] bg-[var(--bg-secondary)] text-[var(--text-main)] font-bold">
               {chapter.chapterNum}
             </span>
-            <span className="font-script text-xl text-[var(--accent-gold)] hidden sm:inline">
+            <span className="caption-script text-xl text-[var(--text-script)] hidden sm:inline">
               {chapter.category}
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             
-            {/* Audio Reader Pill */}
+            {/* Audio Reader */}
             <button
               onClick={handleToggleNarrative}
-              className={`btn-pill-outline text-xs py-1.5 px-3.5 gap-1.5 ${
-                isReading ? 'bg-[var(--accent-magenta)] text-white border-transparent animate-pulse' : ''
+              className={`btn-minimal-icon ${
+                isReading ? 'bg-[var(--accent-sage-dark)] text-white border-transparent' : ''
               }`}
               title={isReading ? 'Stop Reading' : 'Listen to Narrator'}
             >
-              {isReading ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[var(--accent-magenta)]" />}
-              <span className="hidden md:inline font-bold">
+              {isReading ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[var(--accent-gold-dark)]" />}
+              <span className="hidden md:inline font-body text-xs">
                 {isReading ? 'Stop Voice' : 'Narrate'}
               </span>
             </button>
 
-            {/* Font Resizer Pill */}
-            <div className="flex items-center border border-[var(--border-pink)] rounded-full p-0.5 bg-[var(--bg-secondary)]">
+            {/* Font Resizer */}
+            <div className="flex items-center border border-[var(--border-sepia)] rounded p-0.5 bg-[var(--bg-secondary)]">
               <button
                 onClick={() => setFontSize('small')}
-                className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${fontSize === 'small' ? 'bg-[var(--accent-magenta)] text-white' : 'text-[var(--text-muted)]'}`}
+                className={`px-2 py-0.5 rounded text-xs font-bold ${fontSize === 'small' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : 'text-[var(--text-muted)]'}`}
               >
                 A-
               </button>
               <button
                 onClick={() => setFontSize('medium')}
-                className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${fontSize === 'medium' ? 'bg-[var(--accent-magenta)] text-white' : 'text-[var(--text-muted)]'}`}
+                className={`px-2 py-0.5 rounded text-xs font-bold ${fontSize === 'medium' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : 'text-[var(--text-muted)]'}`}
               >
                 A
               </button>
               <button
                 onClick={() => setFontSize('large')}
-                className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${fontSize === 'large' ? 'bg-[var(--accent-magenta)] text-white' : 'text-[var(--text-muted)]'}`}
+                className={`px-2 py-0.5 rounded text-xs font-bold ${fontSize === 'large' ? 'bg-[var(--text-main)] text-[var(--bg-primary)]' : 'text-[var(--text-muted)]'}`}
               >
                 A+
               </button>
             </div>
 
-            {/* Bookmark Pill */}
+            {/* Bookmark Toggle */}
             <button
               onClick={() => onToggleBookmark(chapter.id)}
-              className={`btn-icon-pill w-9 h-9 ${
-                isBookmarked ? 'bg-[var(--accent-magenta)] text-white' : ''
+              className={`btn-minimal-icon ${
+                isBookmarked ? 'bg-[var(--accent-blush)] text-white' : ''
               }`}
               title={isBookmarked ? 'Bookmarked' : 'Add Bookmark'}
             >
@@ -122,10 +122,10 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
                 if (window.speechSynthesis) window.speechSynthesis.cancel();
                 onClose();
               }}
-              className="btn-icon-pill w-9 h-9"
+              className="btn-minimal-icon"
               title="Close Storybook"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </button>
 
           </div>
@@ -139,7 +139,7 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
             <h2 className="text-3xl sm:text-5xl font-black font-display text-[var(--text-main)] mb-2">
               {chapter.title}
             </h2>
-            <p className="font-heading italic text-[var(--accent-magenta)] text-base font-semibold">
+            <p className="font-heading italic text-[var(--text-muted)] text-base font-medium">
               {chapter.subtitle}
             </p>
             <div className="flex items-center justify-center gap-4 text-xs font-body text-[var(--text-muted)] mt-3">
@@ -150,7 +150,7 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
           </div>
 
           {currentPage === 0 && chapter.quote && (
-            <div className="p-5 rounded-2xl bg-[var(--accent-lilac)]/30 border-l-4 border-[var(--accent-magenta)] italic text-center font-heading text-[var(--accent-magenta)] text-base my-6 shadow-sm">
+            <div className="p-5 rounded bg-[var(--bg-secondary)] border-l-4 border-[var(--accent-gold)] italic text-center font-heading text-[var(--text-main)] text-base my-6 shadow-xs">
               "{chapter.quote}"
             </div>
           )}
@@ -167,9 +167,9 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
           </div>
 
           {currentPage === totalPages - 1 && (
-            <div className="mt-12 text-center border-t border-[var(--border-pink)]/30 pt-6">
-              <Feather className="w-6 h-6 text-[var(--accent-magenta)] mx-auto mb-2" />
-              <span className="font-script text-2xl text-[var(--text-main)] block">
+            <div className="mt-12 text-center border-t border-[var(--border-sepia)] pt-6">
+              <Feather className="w-6 h-6 text-[var(--accent-gold-dark)] mx-auto mb-2" />
+              <span className="caption-script text-2xl text-[var(--text-main)] block">
                 Finis - Thus ends {chapter.chapterNum}
               </span>
             </div>
@@ -178,7 +178,7 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
         </div>
 
         {/* Bottom Page Navigation Bar */}
-        <div className="pt-4 border-t border-[var(--border-pink)]/30 flex items-center justify-between mt-4">
+        <div className="pt-4 border-t border-[var(--border-sepia)] flex items-center justify-between mt-4">
           
           <button
             disabled={currentPage === 0}
@@ -187,7 +187,7 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
               setIsReading(false);
               setCurrentPage((p) => Math.max(0, p - 1));
             }}
-            className={`btn-pill-outline text-xs px-5 py-2 ${
+            className={`btn-minimal text-xs ${
               currentPage === 0 ? 'opacity-30 cursor-not-allowed' : ''
             }`}
           >
@@ -206,7 +206,7 @@ export default function StoryReaderModal({ chapter, onClose, isBookmarked, onTog
               setIsReading(false);
               setCurrentPage((p) => Math.min(totalPages - 1, p + 1));
             }}
-            className={`btn-pill-glam text-xs px-5 py-2 ${
+            className={`btn-minimal-fill text-xs ${
               currentPage === totalPages - 1 ? 'opacity-30 cursor-not-allowed' : ''
             }`}
           >

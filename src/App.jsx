@@ -45,18 +45,18 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--accent-magenta)] selection:text-white font-body">
+    <div className="min-h-screen relative transition-colors duration-500 selection:bg-[var(--accent-gold)] selection:text-[#2b1f17] font-body">
       
-      {/* Background Glowing Sparkle & Bokeh Canvas */}
+      {/* Sun-dappled Light Motes & Botanical Pollen Canvas */}
       <SparkleCanvas />
 
-      {/* Floating Viewport Butterflies */}
+      {/* Floating Vintage Viewport Butterflies */}
       <FloatingButterflies />
 
-      {/* Interactive Curious Cursor-Following Butterfly */}
+      {/* Interactive Curious Cursor-Following Moth/Butterfly */}
       <CursorButterfly />
 
-      {/* Glassmorphic Navbar */}
+      {/* Understated Editorial Scrapbook Navbar */}
       <Navbar
         theme={theme}
         setTheme={setTheme}
@@ -96,19 +96,19 @@ export default function App() {
       {/* Bookmarks Quick Modal */}
       {showBookmarksModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-          <div className="glass-card w-full max-w-lg p-6 sm:p-8 border-2 border-[var(--border-pink)] shadow-2xl relative max-h-[80vh] flex flex-col justify-between">
+          <div className="torn-paper w-full max-w-lg p-6 sm:p-8 bg-[var(--bg-card)] border border-[var(--border-sepia)] shadow-2xl relative max-h-[80vh] flex flex-col justify-between">
             
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-pink)]/30 mb-4">
+            <div className="flex items-center justify-between pb-4 border-b border-[var(--border-sepia)] mb-4">
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-[var(--accent-magenta)]" />
-                <h3 className="font-display font-bold text-lg text-[var(--text-main)]">
+                <Bookmark className="w-5 h-5 text-[var(--accent-gold-dark)]" />
+                <h3 className="font-display font-bold text-lg text-[var(--text-main)] uppercase">
                   Bookmarked Tales ({bookmarkedChapters.length})
                 </h3>
               </div>
 
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="btn-icon-pill w-8 h-8"
+                className="btn-minimal-icon"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -122,25 +122,25 @@ export default function App() {
                     setSelectedChapter(c);
                     setShowBookmarksModal(false);
                   }}
-                  className="p-4 rounded-2xl border border-[var(--border-pink)]/40 bg-[var(--bg-card)] hover:border-[var(--accent-magenta)] cursor-pointer flex items-center justify-between transition-colors group"
+                  className="p-4 rounded border border-[var(--border-sepia)] bg-[var(--bg-secondary)] hover:border-[var(--text-main)] cursor-pointer flex items-center justify-between transition-colors group"
                 >
                   <div>
-                    <span className="font-display text-[10px] uppercase text-[var(--accent-magenta)] font-bold">
+                    <span className="font-display text-[10px] uppercase text-[var(--text-muted)] font-bold">
                       {c.chapterNum}
                     </span>
-                    <h4 className="font-display font-bold text-base text-[var(--text-main)] group-hover:text-[var(--accent-magenta)] transition-colors">
+                    <h4 className="font-display font-bold text-base text-[var(--text-main)] group-hover:text-[var(--accent-gold-dark)] transition-colors">
                       {c.title}
                     </h4>
                   </div>
-                  <BookOpen className="w-4 h-4 text-[var(--accent-magenta)]" />
+                  <BookOpen className="w-4 h-4 text-[var(--accent-gold-dark)]" />
                 </div>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-[var(--border-pink)]/30 text-center">
+            <div className="pt-4 border-t border-[var(--border-sepia)] text-center">
               <button
                 onClick={() => setShowBookmarksModal(false)}
-                className="btn-pill-outline text-xs py-2 px-6"
+                className="btn-minimal text-xs py-2 px-6 uppercase tracking-wider"
               >
                 Close Bookmarks
               </button>

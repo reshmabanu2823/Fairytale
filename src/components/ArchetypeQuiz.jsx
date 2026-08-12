@@ -33,10 +33,10 @@ export default function ArchetypeQuiz() {
 
       try {
         confetti({
-          particleCount: 100,
-          spread: 80,
+          particleCount: 90,
+          spread: 75,
           origin: { y: 0.6 },
-          colors: ['#e02575', '#ec4899', '#fbbf24', '#c084fc'],
+          colors: ['#c69d52', '#d8b0b4', '#8f9e8b', '#5c4738'],
         });
       } catch (e) {}
     }
@@ -55,8 +55,8 @@ export default function ArchetypeQuiz() {
       
       {/* Section Header */}
       <div className="text-center mb-14">
-        <span className="font-script text-3xl text-[var(--accent-gold)]">Interactive Quest</span>
-        <h2 className="text-4xl sm:text-6xl font-black font-display mt-1 text-[var(--text-main)]">
+        <span className="caption-script text-3xl text-[var(--accent-gold-dark)] block">Interactive Quest</span>
+        <h2 className="text-4xl sm:text-6xl font-bold font-display uppercase mt-1 text-[var(--text-main)]">
           Discover Your Archetype
         </h2>
         <p className="font-body text-base sm:text-lg text-[var(--text-muted)] max-w-lg mx-auto mt-2 italic">
@@ -67,14 +67,14 @@ export default function ArchetypeQuiz() {
         </div>
       </div>
 
-      {/* Quiz Glassmorphic Card */}
-      <div className="glass-card p-8 sm:p-12 border-2 border-[var(--border-pink)] shadow-2xl relative">
+      {/* Quiz Torn Paper Card */}
+      <div className="torn-paper p-8 sm:p-12 bg-[var(--bg-card)] border border-[var(--border-sepia)] relative">
         
         {!result ? (
           <div>
-            {/* Progress Bar */}
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border-pink)]/30">
-              <span className="font-display text-xs uppercase tracking-widest text-[var(--accent-magenta)] font-bold">
+            {/* Progress Step Header */}
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-[var(--border-sepia)]">
+              <span className="font-display text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">
                 Question {currentQuestion + 1} of {ARCHETYPE_QUIZ_QUESTIONS.length}
               </span>
               
@@ -82,9 +82,9 @@ export default function ArchetypeQuiz() {
                 {ARCHETYPE_QUIZ_QUESTIONS.map((_, idx) => (
                   <div
                     key={idx}
-                    className={`w-9 h-2.5 rounded-full transition-colors ${
+                    className={`w-9 h-2.5 rounded transition-colors ${
                       idx <= currentQuestion
-                        ? 'bg-gradient-to-r from-[#e02575] to-[#ec4899]'
+                        ? 'bg-[var(--text-main)]'
                         : 'bg-[var(--bg-secondary)]'
                     }`}
                   />
@@ -103,10 +103,10 @@ export default function ArchetypeQuiz() {
                 <button
                   key={idx}
                   onClick={() => handleSelectOption(opt.trait)}
-                  className="w-full text-left p-5 rounded-2xl border-2 border-[var(--border-pink)]/40 bg-[var(--bg-card)] hover:border-[var(--accent-magenta)] hover:bg-[var(--accent-lilac)]/30 transition-all duration-300 font-body text-base text-[var(--text-main)] flex items-center justify-between group font-medium shadow-sm"
+                  className="w-full text-left p-5 rounded border border-[var(--border-sepia)] bg-[var(--bg-card)] hover:bg-[var(--bg-secondary)] transition-all duration-200 font-body text-base text-[var(--text-main)] flex items-center justify-between group font-medium"
                 >
                   <span>{opt.text}</span>
-                  <Sparkles className="w-4 h-4 text-[var(--accent-magenta)] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <Sparkles className="w-4 h-4 text-[var(--accent-gold-dark)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
               ))}
             </div>
@@ -115,17 +115,15 @@ export default function ArchetypeQuiz() {
           /* Result Badge Card */
           <div className="text-center py-6 animate-fadeIn">
             
-            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-[#e02575] via-[#ec4899] to-[#fbbf24] p-0.5 shadow-xl mb-6 flex items-center justify-center text-3xl animate-float">
-              <div className="w-full h-full bg-[var(--bg-card)] rounded-full flex items-center justify-center">
-                {result.badge}
-              </div>
+            <div className="wax-seal-badge w-20 h-20 mx-auto text-3xl mb-6 animate-float">
+              <span>{result.badge}</span>
             </div>
 
-            <span className="font-script text-2xl text-[var(--accent-gold)] block">
+            <span className="caption-script text-2xl text-[var(--accent-gold-dark)] block">
               Your Fairytale Archetype Revealed
             </span>
 
-            <h3 className="text-3xl sm:text-5xl font-black font-display text-[var(--text-main)] my-3">
+            <h3 className="text-3xl sm:text-5xl font-black font-display uppercase text-[var(--text-main)] my-3">
               {result.title}
             </h3>
 
@@ -133,15 +131,15 @@ export default function ArchetypeQuiz() {
               <span>✦ 🏆 ✦</span>
             </div>
 
-            <p className="font-body text-lg text-[var(--text-main)] leading-relaxed max-w-xl mx-auto mb-8 font-normal">
+            <p className="font-body text-lg text-[var(--text-main)] leading-relaxed max-w-xl mx-auto mb-8">
               "{result.description}"
             </p>
 
             <button
               onClick={handleReset}
-              className="btn-pill-outline mx-auto font-bold"
+              className="btn-minimal mx-auto font-medium uppercase text-xs tracking-wider"
             >
-              <RotateCcw className="w-4 h-4 text-[var(--accent-magenta)]" />
+              <RotateCcw className="w-4 h-4 text-[var(--accent-gold-dark)]" />
               <span>Retake the Calling Quiz</span>
             </button>
 
